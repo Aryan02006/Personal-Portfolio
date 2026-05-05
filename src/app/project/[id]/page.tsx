@@ -1,0 +1,934 @@
+'use client';
+
+import { useParams } from 'next/navigation';
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import { ChevronLeft, ExternalLink } from 'lucide-react';
+import usePageLoading from '@/hooks/usePageLoading';
+import ImageContainer from '@/components/ui/ImageContainer';
+import Breadcrumb from '@/components/ui/breadcrumb';
+
+// Extended project data with additional details
+const projectsData = [
+  {
+    id: 'normalizerpro',
+    title: 'Normalizer-Pro | AI-Native Database Schema Automation Platform',
+    description: 'A production-grade AI-native platform that transforms unstructured data and product ideas into fully normalized relational database schemas, dramatically reducing backend development time and design complexity.',
+    fullDescription: `
+    Normalizer Pro is a high-performance, AI-native schema automation platform engineered to eliminate one of the most complex and error-prone aspects of backend development—database design. It empowers developers, startups, and data-driven teams to convert raw datasets and product ideas into clean, scalable, and production-ready relational schemas with speed and precision.
+
+    The platform addresses a critical inefficiency in modern development workflows: manual schema design, inconsistent normalization, and fragmented tooling. Normalizer Pro replaces this with a unified, intelligent system that automates schema generation, validation, and optimization.
+
+    Unlike traditional tools, the platform combines deterministic normalization algorithms (up to 3NF) with AI-assisted reasoning, ensuring both structural correctness and contextual intelligence. This hybrid approach eliminates the unreliability of purely AI-generated schemas while maintaining flexibility and adaptability.
+
+    At its core, users can upload flat datasets (CSV) or describe product ideas in natural language to instantly generate structured database schemas. A context-aware schema chat system allows iterative refinement, enabling developers to evolve their database design interactively with AI guidance.
+
+    The platform also features a powerful database tooling layer, allowing users to connect live PostgreSQL, MySQL, or SQLite databases, inspect schema quality, execute queries, and generate migration plans—bridging the gap between design and real-world deployment.
+
+    A professional SQL workspace provides capabilities such as query execution, formatting, schema testing, and export workflows, creating a complete developer environment within a single interface.
+
+    A key innovation is the MCP (Model Context Protocol) automation layer, which transforms the platform into an AI-native development system. It enables external coding agents to autonomously inspect, generate, and modify database schemas across projects—bridging human intent with machine execution and enabling next-generation AI-assisted development workflows.
+
+    To support real-world usage, the platform integrates a production-ready billing system using Razorpay, offering a 7-day trial, subscription-based access, and a credit-based usage model—making it a fully functional SaaS product.
+
+    Built using a modern full-stack architecture with React, TypeScript, Python (Flask), and Groq-powered AI integrations, Normalizer Pro delivers high performance, scalability, and a seamless developer experience.
+
+    This project reflects a shift toward AI-augmented software engineering, where complex backend systems can be designed, validated, and evolved with minimal manual intervention.
+`,
+    image: '/NormalizerPro.png',
+    tags: ['AI Platform', 'Database Design', 'Schema Automation', 'SQL', 'React', 'Flask', 'TypeScript', 'RAG-like Systems', 'Developer Tools', 'SaaS'],
+    liveUrl: 'https://normalizer-pro.vercel.app/',
+    featured: true,
+    category: 'AI / Developer Tooling Platform',
+    goals: [
+      'Automate relational database schema design from raw datasets and product ideas',
+      'Implement hybrid normalization using deterministic logic and AI reasoning',
+      'Enable natural language-driven schema generation and iterative refinement',
+      'Provide real-time database inspection and schema quality analysis',
+      'Build an integrated SQL workspace for execution, testing, and optimization',
+      'Develop MCP-based automation for AI-agent-driven schema workflows',
+      'Create a scalable SaaS model with trial, subscription, and credit-based access',
+      'Reduce developer effort and errors in backend system design'
+    ],
+    technologies: {
+       frontend: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Mermaid.js'],
+       backend: ['Python Flask', 'REST APIs', 'SQLite (state management)'],
+       ai: ['Groq API Integration', 'AI-assisted Schema Generation', 'Context-Aware Chat'],
+       databaseSupport: ['PostgreSQL', 'MySQL', 'SQLite'],
+       visualization: ['Mermaid ER Diagrams', 'Interactive Schema Visualization'],
+       automation: ['MCP (Model Context Protocol)', 'Schema Automation Tools'],
+       authentication: ['Clerk'],
+       billing: ['Razorpay (Subscriptions & Trial System)'],
+       devTools: ['SQL Workspace', 'Query Runner', 'Schema Analyzer'],
+       deployment: ['Vercel (Frontend)', 'Custom Backend Hosting'],
+       other: ['CSV Processing', 'Migration Planning', 'Normalization Algorithms (3NF)', 'Schema Optimization Algorithms']
+  },  
+    challenges: [
+       'Designing a hybrid system combining deterministic normalization with AI reasoning for reliable schema generation',
+       'Ensuring accurate 3NF normalization across diverse and unstructured datasets',
+       'Building a context-aware schema chat system for iterative design refinement',
+       'Maintaining compatibility across PostgreSQL, MySQL, and SQLite engines',
+       'Developing a full-featured SQL workspace with execution and optimization capabilities',
+       'Implementing MCP for real-time AI-agent interaction with project schemas',
+       'Designing a scalable billing system with trials, subscriptions, and usage credits',
+       'Optimizing performance for large datasets and complex schema transformations'
+  ],
+    results: [
+       'Reduced manual database design effort by approximately 70% through automation and AI-assisted workflows',
+       'Enabled schema generation from raw datasets and ideas in under 5–10 seconds',
+       'Improved database design quality by enforcing 3NF normalization and eliminating redundancy',
+       'Delivered an all-in-one platform combining schema generation, SQL execution, and live database analysis',
+       'Enabled AI-agent integration via MCP, introducing automated schema workflows across development environments',
+       'Built a monetizable SaaS product with trial-to-subscription flow using Razorpay',
+       'Significantly enhanced developer productivity by eliminating repetitive schema and migration tasks',
+       'Established a scalable foundation for future AI-driven backend engineering systems'
+  ],
+    date: 'April 2026',
+    duration: '1 months',
+  },
+  {
+  id: 'smartmess',
+  title: 'SmartMess | Smart Mess & Meal Management SaaS Platform',
+  description: 'A full-stack SaaS platform designed to digitize and automate hostel mess operations, including meal tracking, subscription management, billing, and administrative workflows. The system improves operational efficiency, reduces manual errors, and provides real-time visibility into mess activities.',
+
+  image: '/smartmess.png',
+
+  tags: [
+    'SaaS',
+    'Full Stack',
+    'Mess Management',
+    'React',
+    'Node.js',
+    'MongoDB',
+    'REST API',
+    'Authentication',
+    'Dashboard UI'
+  ],
+
+  liveUrl: 'https://smart-mess-blond.vercel.app/',
+  featured: true,
+  category: 'SaaS / Management Platform',
+
+  goals: [
+    'Digitize and automate hostel mess operations and workflows',
+    'Enable efficient meal tracking and daily consumption monitoring',
+    'Implement subscription-based meal plans with flexible billing cycles',
+    'Provide role-based dashboards for admins and users',
+    'Ensure secure authentication and user data management',
+    'Offer real-time updates on meals, attendance, and billing',
+    'Reduce manual record-keeping and operational overhead',
+    'Build a scalable system adaptable to multiple institutions'
+  ],
+
+  technologies: {
+    frontend: ['React', 'JavaScript', 'CSS', 'Responsive UI'],
+    backend: ['Node.js', 'Express.js', 'REST APIs'],
+    database: ['MongoDB'],
+    authentication: ['JWT / Session-based Auth'],
+    stateManagement: ['Context API / Local State'],
+    deployment: ['Vercel (Frontend)', 'Backend Hosting'],
+    other: [
+      'CRUD Operations',
+      'Form Handling',
+      'API Integration',
+      'Dashboard Analytics (Basic)'
+    ]
+  },
+
+  challenges: [
+    'Designing a scalable system to handle multiple users and mess records efficiently',
+    'Implementing accurate meal tracking and subscription logic',
+    'Ensuring data consistency between frontend and backend systems',
+    'Building secure authentication and session management',
+    'Creating intuitive dashboards for both admin and user roles',
+    'Handling real-time updates and dynamic UI rendering',
+    'Optimizing performance for frequent data operations',
+    'Structuring the database schema for flexibility and scalability'
+  ],
+
+  results: [
+    'Digitized core mess operations, eliminating manual record-keeping',
+    'Improved operational efficiency and reduced human errors in tracking',
+    'Enabled real-time monitoring of meals and user activity',
+    'Provided a centralized platform for subscription and billing management',
+    'Enhanced user experience through responsive and dashboard-driven UI',
+    'Built a scalable foundation for multi-hostel deployment',
+    'Reduced administrative workload through automation of repetitive tasks',
+    'Delivered a production-ready full-stack SaaS application'
+  ],
+
+  date: '2026',
+  duration: '1–2 months'
+  },
+  {
+    id: 'startupops',
+    title: 'StartupOps – AI-Powered Startup Management Platform',
+    description: 'A next-generation AI-powered operating system for startups that transforms how founders launch, manage, and scale their businesses through intelligent automation, predictive analytics, and real-time strategic insights.',
+    fullDescription: `
+  StartupOps is a high-performance, AI-powered startup operating system built to transform how modern founders build, manage, and scale their businesses. It consolidates fragmented tools and workflows into a single intelligent platform that combines automation, analytics, and real-time strategic decision-making.
+
+  The platform solves a critical inefficiency in early-stage startups—dependence on scattered tools and intuition-driven decisions. StartupOps replaces this with a centralized, data-driven ecosystem where every action is guided by AI-powered insights and operational intelligence.
+
+  At its core is a powerful AI assistant built on Google Gemini 2.0 Flash and 2.5 Flash models, leveraging a robust Retrieval-Augmented Generation (RAG) architecture. Founders can interact with their business using natural language to instantly uncover insights, identify growth opportunities, and diagnose performance bottlenecks—acting as a real-time strategic co-pilot.
+
+  The system is designed with a modular, scalable architecture featuring key components such as an Idea Validation Engine, Growth Analytics Dashboard, Workflow Automation, and AI Strategy Assistant. This enables founders to move seamlessly from idea to execution with speed, clarity, and confidence.
+
+  Advanced capabilities include AI-generated business strategies, intelligent KPI tracking, user behavior analytics, predictive growth forecasting, and automated reporting—continuously surfacing insights and optimizing decision-making.
+
+  To ensure production-grade reliability, the platform implements multi-API key management with circuit breaker patterns, failover mechanisms, and load balancing—delivering high availability and fault tolerance under scale.
+
+  Performance is optimized using Redis caching via Upstash, significantly reducing latency and API costs, while Supabase ensures secure authentication and data isolation through Row-Level Security (RLS).
+
+  Built with Next.js 16, React Server Components, and a modern full-stack architecture, StartupOps delivers a fast, scalable, and responsive experience across devices.
+
+  This project demonstrates advanced full-stack engineering, deep AI integration, and production-grade system design—showcasing the ability to build scalable SaaS platforms with real-world impact in high-growth startup environments.
+`,
+    image: '/StartupOps.png',
+    tags: ['Next.js 16', 'Google Gemini AI', 'Supabase', 'Redis', 'Upstash', 'RAG', 'TypeScript', 'Startup Tools', 'AI SaaS', 'Analytics', 'Automation'],
+    liveUrl: 'https://startupxps.vercel.app/',
+    featured: true,
+    category: 'AI / SaaS Platform',
+    goals: [
+      'Build a unified, AI-powered startup operating system for founders and small teams',
+      'Integrate a natural language AI assistant using Google Gemini with RAG architecture',
+      'Design modular systems for idea validation, growth analytics, and workflow automation',
+      'Enable intuitive interaction with startup data through conversational AI',
+      'Implement scalable multi-API architecture with circuit breaker and failover mechanisms',
+      'Optimize performance and cost efficiency using Redis caching strategies',
+      'Develop intuitive dashboards for KPI tracking, insights, and decision-making',
+      'Ensure scalability to support 500–1000 active users and daily operational workloads'
+    ],
+    technologies: {
+      frontend: ['Next.js 16 (App Router)', 'React 19', 'TypeScript 5', 'Tailwind CSS 4', 'Framer Motion'],
+      backend: ['Next.js API Routes', 'Supabase (PostgreSQL + Auth + Storage)', 'REST APIs'],
+      ai: ['Google Gemini 2.0 Flash', 'Gemini 2.5 Flash', 'RAG Architecture', 'AI Strategy Engine'],
+      stateManagement: ['Zustand with persistence'],
+      dataProcessing: ['Axios', 'Custom Data Pipelines'],
+      visualization: ['Recharts', 'Custom Analytics Dashboards'],
+      authentication: ['Supabase Auth with Row-Level Security (RLS)'],
+      caching: ['Redis (Upstash)', 'Intelligent API response caching'],
+      export: ['PDF reports', 'CSV export'],
+      deployment: ['Vercel', 'Supabase Cloud', 'Upstash'],
+      other: ['Circuit Breaker Pattern', 'Load Balancing', 'Health Monitoring'],
+    },
+    challenges: [
+       'Designing an AI system capable of generating reliable, actionable insights from limited and evolving startup data',
+       'Implementing RAG architecture to deliver context-aware responses across diverse business workflows',
+       'Building a resilient multi-API key system with circuit breaker patterns and automatic failover',
+       'Creating intuitive dashboards that abstract complex business metrics into clear insights',
+       'Optimizing performance in a serverless environment using Redis caching and data reuse strategies',
+       'Ensuring secure multi-tenant access with Row-Level Security (RLS) in Supabase',
+       'Handling real-time data updates for analytics, workflows, and collaborative features',
+       'Balancing advanced functionality with a clean, user-friendly experience for non-technical founders'
+    ],
+    results: [
+       'Engineered a production-grade AI SaaS platform that centralizes startup operations, enabling faster execution and data-driven decision-making',
+       'Built an intelligent AI assistant delivering real-time, context-aware business insights and strategic recommendations',
+       'Reduced API latency and operational costs by implementing Redis caching and optimized response reuse strategies',
+       'Designed a scalable architecture capable of supporting hundreds of daily active users with consistent performance',
+       'Delivered real-time analytics dashboards that significantly improve KPI visibility and decision speed',
+       'Enabled natural language interaction with business data, eliminating the need for manual analysis and technical queries',
+       'Implemented secure, multi-tenant architecture using Supabase Row-Level Security (RLS) for strict data isolation',
+       'Architected a modular and extensible system, allowing rapid feature expansion and long-term scalability',
+       'Integrated fault-tolerant multi-API infrastructure with circuit breaker patterns, ensuring high availability and reliability',
+       'Streamlined startup workflows through intelligent automation, reducing manual effort and operational overhead'
+    ],
+    date: 'February 2026',
+    duration: '1.5 months',
+  },
+  {
+    id: 'insightflow',
+    title: 'InsightFlow – AI-Powered Data Analysis Platform',
+    description: 'An enterprise-grade AI-powered data analytics platform that enables non-technical users to analyze datasets through natural language queries, automated visualizations, and intelligent insights.',
+    fullDescription: `
+      InsightFlow is a production-ready, enterprise-grade data analytics platform that democratizes data analysis by enabling non-technical users to explore datasets through natural language queries and automated AI-powered visualizations. Built with cutting-edge technologies including Next.js 16, Google Gemini AI, and a LIDA-inspired architecture based on Microsoft Research.
+
+      The platform addresses a critical challenge in business intelligence: making data analysis accessible to everyone without requiring SQL knowledge or technical expertise. Users can simply upload their data files and ask questions in plain English like "What are my top 5 products by revenue?" or "Show me sales trends over time."
+
+      The technical implementation features a sophisticated AI query engine that processes natural language questions using Google Gemini 2.0 Flash and 2.5 Flash models with RAG (Retrieval-Augmented Generation) architecture. The system intelligently analyzes dataset structure, generates appropriate SQL queries or aggregations, and returns results with confidence scoring.
+
+      The LIDA-inspired architecture (based on Microsoft Research's "LIDA: A Tool for Automatic Generation of Grammar-Agnostic Visualizations and Infographics") includes three core components: Data Summarization that generates concise 2K token summaries of datasets for efficient AI processing, Goal Exploration that suggests relevant visualization goals and questions based on data characteristics, and Visualization Generation that creates optimal chart configurations with self-evaluation scoring.
+
+      Advanced features include AI-powered chart recommendations that analyze data types and suggest the best visualization (bar, line, pie, scatter, heatmap, sankey, funnel), real-time trend forecasting using time series analysis, automated anomaly detection with severity-based alerts, correlation analysis with interactive heatmaps, and AI-generated narrative insights that explain chart patterns in natural language.
+
+      The platform implements a production-grade multi-API key management system with circuit breaker pattern, weighted round-robin distribution across 10 Gemini API keys, health monitoring with auto-recovery, and support for 1000+ daily API requests on the free tier. Redis caching via Upstash provides 10x faster dataset loading (50ms vs 500ms), reducing Supabase read operations by 80% and Gemini API calls by 90% through cached insights.
+
+      The data processing pipeline handles files up to 50MB with intelligent column type detection (numbers, dates, text, categories), automatic data quality analysis with scoring, duplicate and outlier identification using IQR method, and support for datasets with 10,000+ rows.
+
+      Built with a modern tech stack including Next.js 16 App Router with React Server Components, Zustand state management with localStorage persistence, Supabase for authentication and PostgreSQL database with Row-Level Security, and Recharts/Nivo/D3.js for advanced interactive visualizations. The responsive design with Tailwind CSS 4 ensures excellent user experience across desktop, tablet, and mobile devices.
+
+      This project demonstrates advanced full-stack development skills with production-ready architecture, sophisticated AI integration with multiple models and fallback systems, enterprise patterns like circuit breakers and load balancing, comprehensive caching strategies for performance optimization, security best practices with RLS and proper authentication, and scalable design supporting 250-1000 active users per day.
+    `,
+    image: '/insight.png',
+    tags: ['Next.js 16', 'Google Gemini AI', 'Supabase', 'Redis', 'Upstash', 'LIDA Architecture', 'RAG', 'TypeScript', 'Recharts', 'Nivo', 'Data Analytics', 'BI Platform', 'Natural Language Processing'],
+    liveUrl: 'https://insight-flow-sandy.vercel.app/',
+    featured: true,
+    category: 'AI / Data Analytics',
+    goals: [
+      'Create an enterprise-grade data analytics platform accessible to non-technical users',
+      'Implement natural language query processing using Google Gemini API with RAG architecture',
+      'Build LIDA-inspired architecture for intelligent data summarization and visualization generation',
+      'Develop AI-powered chart recommendations, forecasting, and anomaly detection',
+      'Implement production-grade multi-API key management with circuit breaker pattern',
+      'Create Redis caching system for 10x performance improvement and reduced API costs',
+      'Design 8+ interactive visualization types with comprehensive export functionality',
+      'Ensure scalability to support 1000+ daily requests and 250-1000 active users'
+    ],
+    technologies: {
+      frontend: ['Next.js 16 (App Router)', 'React 19', 'TypeScript 5', 'Tailwind CSS 4', 'Recharts 3.5', 'Nivo Charts', 'D3.js', 'Framer Motion'],
+      backend: ['Next.js API Routes', 'Supabase (PostgreSQL + Auth + Storage)', 'Redis (Upstash)', 'RESTful APIs'],
+      ai: ['Google Gemini 2.0 Flash', 'Gemini 2.5 Flash', 'RAG Architecture', 'LIDA-Inspired Architecture', 'Multi-Model Fallbacks'],
+      stateManagement: ['Zustand 5.0.8 with localStorage persistence'],
+      dataProcessing: ['PapaParse (CSV)', 'XLSX (Excel)', 'React Dropzone', 'Axios'],
+      visualization: ['Recharts', 'Nivo (bar, line, pie, heatmap, sankey, funnel)', 'D3.js ecosystem'],
+      authentication: ['Supabase Auth with Row-Level Security (RLS)'],
+      caching: ['Redis (Upstash serverless)', 'Multi-key load balancing'],
+      export: ['html2canvas', 'jsPDF', 'CSV/Excel export'],
+      deployment: ['Vercel (Frontend)', 'Supabase Cloud (Database)', 'Upstash (Redis)'],
+      other: ['Circuit Breaker Pattern', 'Weighted Round-Robin Distribution', 'Health Monitoring', 'Statistical Analysis'],
+    },
+    challenges: [
+      'Implementing LIDA-inspired architecture (Microsoft Research) for intelligent data summarization and reducing token usage by 50%',
+      'Building multi-API key load balancing system with circuit breaker pattern, health monitoring, and weighted round-robin distribution across 10 keys',
+      'Creating natural language query engine that converts English questions to SQL/aggregations with 90%+ accuracy and confidence scoring',
+      'Integrating Redis caching (Upstash) for serverless environment with automatic fallback to Supabase for 10x performance gain',
+      'Developing AI-powered chart recommendation system that analyzes data types and suggests optimal visualizations',
+      'Implementing real-time anomaly detection using IQR method with severity-based alerts and visual indicators',
+      'Designing Row-Level Security (RLS) policies in Supabase to ensure users can only access their own data',
+      'Handling large datasets (10,000+ rows) with intelligent sampling and pagination without performance degradation',
+      'Creating comprehensive export system supporting PNG, PDF, CSV, and Excel formats with proper formatting',
+      'Building responsive UI with 8+ complex chart types that work seamlessly across desktop, tablet, and mobile'
+    ],
+    results: [
+      'Production-ready SaaS platform supporting 250-1000 active users per day with 1000+ API requests on free tier',
+      'Natural language query engine with 90%+ accuracy for common business intelligence questions',
+      'LIDA-inspired architecture reducing AI token usage by 50% while maintaining high-quality outputs',
+      'Multi-API key system with circuit breaker pattern achieving 99.9% uptime and automatic failure recovery',
+      'Redis caching providing 10x faster dataset loading (50ms vs 500ms) and 80% reduction in database reads',
+      '8+ interactive visualization types (line, bar, scatter, pie, heatmap, sankey, funnel, area) with AI recommendations',
+      'Real-time anomaly detection and forecasting with automated alerts and narrative generation',
+      'Comprehensive data quality analysis with automatic outlier detection, duplicate identification, and scoring',
+      'Dashboard sharing and collaboration features with public links and team member management',
+      'Full export functionality supporting PNG, PDF, CSV, and Excel with professional formatting',
+      'Complete deployment on free tier: Vercel (hosting), Supabase (database), Upstash (Redis), Gemini (AI)',
+      'Scalable architecture designed to handle 10,000 requests/day with free tier resources'
+    ],
+    date: 'December 2025',
+    duration: '2 months',
+  },
+  {
+    id: 'homely',
+    title: 'Homely – Full-Stack Food Delivery Platform',
+    description: 'A comprehensive full-stack food delivery platform enabling customers to order from local sellers, track deliveries, and analyze nutrition.',
+    fullDescription: `
+      A comprehensive full-stack food delivery platform enabling customers to order from local sellers, track deliveries, and analyze nutrition, with robust admin and seller dashboards.
+      
+      The application features multiple user roles (customer, seller, delivery partner) with secure authentication, real-time order tracking and chat using WebSockets, and a comprehensive seller dashboard for menu, order, and payment management. It integrates Cloudinary for image uploads and optimization, and includes an advanced Nutrition Analyzer powered by Google Gemini AI that provides detailed nutritional information for dishes. The UI is interactive and animated using Framer Motion and Shadcn UI components, ensuring a mobile-responsive and accessible design. The backend provides RESTful APIs for robust operations, including payment and refund management, while an admin dashboard offers analytics and reporting.
+      
+      This project demonstrates my ability to create complex, full-stack applications with multiple user roles, real-time features, and AI integrations.
+    `,
+    image: '/homely.png',
+    tags: ['Next.js', 'TypeScript', 'Express.js', 'MongoDB', 'Cloudinary', 'WebSockets', 'Framer Motion', 'Shadcn UI', 'Google Gemini AI'],
+    liveUrl: 'https://homely-frontend-opal.vercel.app',
+    featured: true,
+    category: 'Full Stack',
+    goals: [
+      'Create a comprehensive food delivery platform with multiple user roles',
+      'Implement real-time order tracking and communication',
+      'Develop robust seller and admin dashboards',
+      'Integrate AI-powered nutrition analysis',
+      'Ensure secure payment and refund processing'
+    ],
+    technologies: {
+      frontend: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion', 'Shadcn UI'],
+      backend: ['Express.js', 'MongoDB', 'WebSockets', 'REST APIs'],
+      deployment: ['Vercel', 'Render'],
+      other: ['Cloudinary', 'Google Gemini AI', 'Payment Processing', 'Authentication'],
+    },
+    challenges: [
+      'Managing complex state across multiple user roles and permissions',
+      'Implementing real-time communication and order tracking',
+      'Creating an AI-powered nutrition analyzer with conversational capabilities',
+      'Ensuring secure image uploads and optimization',
+      'Building a comprehensive seller dashboard with analytics'
+    ],
+    results: [
+      'Multi-role platform supporting customers, sellers, and delivery partners',
+      'Real-time order tracking and communication using WebSockets',
+      'AI-powered nutrition analysis with Google Gemini integration',
+      'Comprehensive seller dashboard for menu and order management',
+      'Secure payment processing and refund management'
+    ],
+    date: 'April 2024',
+    duration: '3 months',
+  },
+  {
+    id: 'ootd',
+    title: 'OOTD – AI-Powered Fashion Stylist',
+    description: 'A comprehensive AI-powered fashion platform that analyzes outfits, generates style recommendations, and creates personalized fashion advice.',
+    fullDescription: `
+      A comprehensive AI-powered fashion platform that analyzes outfits, generates style recommendations, and creates personalized fashion advice using cutting-edge technologies including Google Gemini AI, Next.js 15, and modern UI components.
+
+      The platform features advanced AI image analysis using Google Gemini Vision API for detailed outfit feedback with numerical style scores (1-10) and improvement suggestions. It includes culturally-aware fashion advice, color palette analysis, and occasion-based recommendations for work, casual, formal, and special events.
+
+      The AI image generation system integrates with multiple services (Hugging Face and Pollinations.ai) with automatic fallback systems, fashion-specific prompts optimized for outfit generation, and high-quality 512x768 resolution images. User management is powered by Clerk with secure authentication, social logins, and comprehensive profile management with style preference learning.
+
+      Advanced image management through Cloudinary provides professional-grade storage and optimization, multiple upload methods (drag & drop, click, camera), automatic format validation and compression. Interactive features include AI-generated dynamic questionnaires, 5-star rating systems, favorites management, and PDF export capabilities.
+
+      The modern UI/UX features responsive design optimized for all devices, dark/light mode with system awareness, fashion-themed loading animations, animated 3D gradient backgrounds, and Framer Motion animations for enhanced user experience.
+
+      This project demonstrates my ability to create sophisticated full-stack applications that leverage cutting-edge AI technologies to provide personalized, professional-grade user experiences while maintaining high performance and security standards.
+    `,
+    image: '/ootd.png',
+    tags: ['Next.js 15', 'Google Gemini AI', 'Clerk', 'Supabase', 'Cloudinary', 'Hugging Face', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
+    liveUrl: 'https://ootd.vercel.app/',
+    featured: true,
+    category: 'AI',
+    goals: [
+      'Create a comprehensive AI-powered fashion analysis platform',
+      'Implement advanced outfit image analysis with Google Gemini Vision API',
+      'Develop AI image generation with multiple service integrations',
+      'Build secure user authentication and profile management system',
+      'Create professional-grade image storage and optimization',
+      'Design responsive UI with modern animations and theming'
+    ],
+    technologies: {
+      frontend: ['Next.js 15', 'React 19', 'TypeScript 5.2', 'Tailwind CSS 3.3', 'Shadcn/ui', 'Framer Motion'],
+      backend: ['Google Gemini 2.5 Flash', 'Supabase PostgreSQL', 'Hugging Face API', 'Pollinations.ai'],
+      authentication: ['Clerk', 'JWT Integration', 'Social Logins'],
+      storage: ['Cloudinary', 'Supabase Storage'],
+      deployment: ['Vercel', 'Edge Network'],
+      other: ['LangChain', 'Row Level Security', 'Formspree', 'PDF Generation'],
+    },
+    challenges: [
+      'Integrating Google Gemini Vision API for accurate fashion analysis',
+      'Creating fallback systems for AI image generation services',
+      'Implementing Row Level Security for multi-user data protection',
+      'Optimizing image processing and storage for performance',
+      'Designing culturally-aware AI recommendations',
+      'Building responsive UI that works across all device types'
+    ],
+    results: [
+      'Advanced AI outfit analysis with numerical style scoring',
+      'Reliable AI image generation with 99.9% uptime through fallbacks',
+      'Secure multi-user platform with comprehensive authentication',
+      'Professional image management with automatic optimization',
+      'Responsive design with excellent user experience across devices',
+      'Production-ready deployment with global edge network'
+    ],
+    date: 'July 2025',
+    duration: '4 months',
+  },
+  {
+    id: 'studybuddy',
+    title: 'StudyBuddy – AI-Powered Study Management',
+    description: 'A comprehensive AI-powered study management application that helps students organize their learning with intelligent flashcards, adaptive quizzes, smart notes, and comprehensive analytics.',
+    fullDescription: `
+      StudyBuddy is a comprehensive AI-powered study management application built with Django REST Framework and React that revolutionizes how students organize their learning through intelligent flashcards, adaptive quizzes, smart notes, and comprehensive analytics using Google Gemini AI.
+
+      The application features a complete user authentication system with JWT tokens, registration, login, and user profiles with statistics tracking. The notes management system includes rich text editing with React Quill, subject/topic organization with tagging, search functionality by title and content, and AI-powered categorization for better organization.
+
+      The AI quiz generation system is powered by Google Gemini 2.5 Flash with multiple model fallbacks (2.0 Flash, 1.5 Flash, Gemini Pro) for reliability. It generates high-quality multiple-choice questions from notes or topics with customizable difficulty levels (easy, medium, hard), supports 3-10 questions per quiz, and includes educational explanations for answers. The system features robust JSON parsing with markdown code block handling and comprehensive error handling.
+
+      Interactive quiz taking includes a clean interface with navigation, optional timer functionality, progress indicators, immediate scoring after submission, and detailed answer review with explanations. The flashcard system auto-generates cards from notes using AI, supports custom flashcard creation, includes spaced repetition algorithms for optimal retention, and features a mobile-friendly swipe interface.
+
+      The comprehensive analytics dashboard tracks quiz scores over time with visual charts using Recharts, provides subject-wise performance breakdowns, calculates study streaks automatically, identifies weak areas for focused study, and includes real-time statistics updates. Daily activity tracking monitors quizzes taken, study time, and performance metrics.
+
+      The modern UI features a fully responsive design optimized for mobile, tablet, and desktop, dark/light mode toggle with persistence, Tailwind CSS styling with custom components, Framer Motion animations and smooth transitions, React Hot Toast notifications, and intuitive navigation with React Router.
+
+      The technical architecture includes a RESTful API with Django REST Framework, PostgreSQL database with proper relationships and data integrity, JWT authentication with automatic token refresh, CORS handling for frontend-backend communication, comprehensive error handling and validation, and production-ready deployment configuration for Vercel (frontend) and Render (backend).
+
+      This project demonstrates advanced full-stack development skills with modern technologies, sophisticated AI integration with fallback systems, production-ready architecture with proper security measures, comprehensive testing and debugging, and professional UI/UX design principles.
+    `,
+    image: '/sb.png',
+    tags: ['Django 5.0.1', 'React 18', 'Google Gemini AI', 'PostgreSQL', 'JWT', 'Tailwind CSS', 'Recharts', 'Vite', 'Django REST Framework'],
+    liveUrl: 'https://studybuddy-frontend-plum.vercel.app/',
+    featured: true,
+    category: 'AI',
+    goals: [
+      'Create a comprehensive AI-powered study management platform for students',
+      'Implement intelligent flashcards with spaced repetition algorithms for optimal learning',
+      'Develop adaptive quiz generation using Google Gemini AI with multiple model fallbacks',
+      'Build comprehensive analytics dashboard with real-time progress tracking',
+      'Design modern responsive UI with dark/light mode and mobile optimization',
+      'Create production-ready RESTful API with robust error handling and security'
+    ],
+    technologies: {
+      frontend: ['React 18', 'Vite', 'React Router', 'Tailwind CSS', 'Framer Motion', 'React Quill', 'Recharts', 'React Hot Toast'],
+      backend: ['Django 5.0.1', 'Django REST Framework', 'PostgreSQL', 'JWT Authentication', 'WhiteNoise', 'Gunicorn'],
+      ai: ['Google Gemini 2.5 Flash', 'Gemini 2.0 Flash', 'Gemini 1.5 Flash', 'Structured Prompts', 'JSON Parsing', 'Model Fallbacks'],
+      deployment: ['Vercel (Frontend)', 'Render (Backend)', 'PostgreSQL Database', 'Environment Variables'],
+      other: ['CORS Handling', 'Spaced Repetition', 'Real-time Analytics', 'Rich Text Editing', 'Mobile Responsive'],
+    },
+    challenges: [
+      'Implementing robust AI integration with Google Gemini API and handling JSON parsing failures from markdown-wrapped responses',
+      'Creating multiple model fallback systems (Gemini 2.5 Flash → 2.0 Flash → 1.5 Flash → Pro) for 99.9% uptime reliability',
+      'Building comprehensive analytics tracking system with real-time updates for quiz attempts, study time, and streak calculations',
+      'Developing spaced repetition algorithms for flashcards to optimize learning retention and memory consolidation',
+      'Designing responsive UI that works seamlessly across mobile, tablet, and desktop with complex study interfaces',
+      'Implementing secure JWT authentication with automatic token refresh and proper CORS handling for production deployment'
+    ],
+    results: [
+      'Fully functional AI-powered study platform with 5+ working quiz generation models and robust error handling',
+      'Intelligent flashcard system with spaced repetition algorithms and mobile-friendly swipe interface',
+      'Advanced analytics dashboard with real-time tracking of study streaks, performance metrics, and subject mastery',
+      'Production-ready deployment on Vercel (frontend) and Render (backend) with PostgreSQL database',
+      'Modern responsive design with dark/light mode, smooth animations, and excellent mobile user experience',
+      'Comprehensive RESTful API with 15+ endpoints, proper validation, and production-grade security measures'
+    ],
+    date: 'July 2025',
+    duration: '2 months',
+  },
+  // {
+  //   id: 'globalconnect',
+  //   title: 'GlobalConnect – AI-Powered Bidding Platform',
+  //   description: 'A platform for streamlining communication and bidding for cross-border exports.',
+  //   fullDescription: `
+  //     A platform for streamlining communication and bidding for cross-border exports, improving efficiency in international trade.
+  //
+  //     The system includes real-time chat & bidding functionality for exporters, secure authentication and user role-based access control, and AI-driven analytics for predicting competitive bids. The scalable infrastructure supports 1,000+ concurrent users, and as a hackathon finalist project, it demonstrated a 60% improvement in transaction speeds.
+  //
+  //     This project showcases my ability to create complex real-time systems with AI integration that can handle high user loads while providing valuable business insights.
+  //   `,
+  //   image: '/gc.png',
+  //   tags: ['MERN Stack', 'MongoDB', 'Express.js', 'React.js', 'Node.js', 'WebSockets', 'REST APIs'],
+  //   liveUrl: 'https://drive.google.com/file/d/1YAFBVTdQV9nDkzl7UNoeN7qasIqdfZ7-/view',
+  //   featured: true,
+  //   category: 'AI',
+  //   goals: [
+  //     'Create a platform for cross-border export bidding',
+  //     'Implement real-time chat and bidding functionality',
+  //     'Develop AI-driven analytics for competitive bid prediction',
+  //     'Build a scalable infrastructure for high user loads',
+  //     'Improve transaction speeds in international trade'
+  //   ],
+  //   technologies: {
+  //     frontend: ['React.js', 'Redux', 'CSS3', 'Socket.io Client'],
+  //     backend: ['Node.js', 'Express.js', 'MongoDB', 'WebSockets'],
+  //     deployment: ['AWS'],
+  //     other: ['AI Analytics', 'Real-time Communication', 'Role-based Access'],
+  //   },
+  //   challenges: [
+  //     'Creating a scalable WebSocket architecture for real-time bidding',
+  //     'Implementing AI algorithms for competitive bid prediction',
+  //     'Ensuring secure authentication for international users',
+  //     'Building a system that could handle high concurrent usage'
+  //   ],
+  //   results: [
+  //     'Support for 1,000+ concurrent users',
+  //     '60% improvement in transaction speeds',
+  //     'Real-time communication and bidding functionality',
+  //     'Accurate bid predictions through AI-driven analytics'
+  //   ],
+  //   date: 'November 2023',
+  //   duration: '1 month',
+  // },
+  {
+    id: 'digital-evidence-viewer',
+    title: 'Digital Evidence Metadata Viewer',
+    description: 'A client-side digital forensics tool for securely analyzing files, extracting metadata, and creating reports.',
+    fullDescription: `
+      A client-side digital forensics tool for securely analyzing files, extracting metadata, generating cryptographic hashes, and creating forensic reports - all without sending any data to a server.
+
+      The application performs all file analysis entirely in the browser, meaning sensitive evidence files never leave the user's device. It provides comprehensive metadata extraction for various file types, cryptographic hash generation (MD5, SHA-256), file signature verification, case management capabilities, and professional PDF report generation. All analysis results are stored securely in the browser using IndexedDB.
+      
+      This project demonstrates my ability to create secure, privacy-focused applications with advanced client-side processing capabilities for specialized domains like digital forensics.
+    `,
+    image: '/df.png',
+    tags: ['Next.js', 'Clerk', 'TailwindCSS', 'Web Crypto API', 'ExifReader', 'jsPDF', 'IndexedDB'],
+    liveUrl: 'https://df-project-nine.vercel.app',
+    featured: true,
+    category: 'Digital Forensics',
+    goals: [
+      'Create a secure digital forensics tool with complete client-side processing',
+      'Implement comprehensive file metadata extraction and analysis',
+      'Develop cryptographic hash generation and file signature verification',
+      'Build case management and organization capabilities',
+      'Create professional forensic report generation'
+    ],
+    technologies: {
+      frontend: ['Next.js 14 (App Router)', 'TypeScript', 'TailwindCSS', 'React'],
+      other: ['Web Crypto API', 'ExifReader', 'jsPDF', 'IndexedDB', 'Clerk Authentication'],
+      deployment: ['Vercel'],
+    },
+    challenges: [
+      'Processing large files entirely client-side without performance issues',
+      'Implementing complex cryptographic operations in the browser',
+      'Creating a secure storage mechanism for forensic data',
+      'Generating professional PDF reports with consistent formatting',
+      'Ensuring compliance with digital forensics best practices'
+    ],
+    results: [
+      'Secure, privacy-focused file analysis with no server uploads',
+      'Comprehensive metadata extraction for various file types',
+      'Professional PDF reports for forensic documentation',
+      'Case management system for organizing multiple analyses',
+      'Secure local storage of analysis results'
+    ],
+    date: 'February 2024',
+    duration: '2 months',
+  },
+  {
+    id: 'portfolio',
+    title: 'Portfolio Website – Next.js Animated Portfolio',
+    description: 'A modern, fully animated portfolio built using Next.js, showcasing projects, skills, and contact info.',
+    fullDescription: `
+      A modern, fully animated portfolio built using Next.js, showcasing projects, skills, and contact info, with smooth transitions and a professional UI.
+      
+      The site features a fully responsive and modern UI, smooth animations using Framer Motion, an integrated contact form with EmailJS, a comprehensive projects section with live links, and optimization for fast performance & SEO.
+      
+      This project demonstrates my frontend development skills, particularly in creating engaging, animated interfaces that provide a professional presentation of work and capabilities.
+    `,
+    image: '/portfolio.png',
+    tags: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'EmailJS'],
+    liveUrl: 'https://abhijeet-portfolio.vercel.app',
+    featured: false,
+    category: 'Web App',
+    goals: [
+      'Create a professional portfolio to showcase projects and skills',
+      'Implement smooth animations and transitions',
+      'Develop a responsive design for all device sizes',
+      'Integrate a contact form for communication',
+      'Optimize for performance and SEO'
+    ],
+    technologies: {
+      frontend: ['Next.js', 'React', 'Tailwind CSS', 'Framer Motion'],
+      deployment: ['Vercel'],
+      other: ['EmailJS', 'Responsive Design', 'SEO Optimization'],
+    },
+    challenges: [
+      'Creating smooth animations that enhanced the user experience',
+      'Implementing a responsive design that looked professional on all devices',
+      'Optimizing image loading for performance',
+      'Integrating contact functionality securely'
+    ],
+    results: [
+      'Professional presentation of projects and skills',
+      'Smooth animations and transitions that enhance user engagement',
+      'Fully responsive design that works across all devices',
+      'Secure contact functionality through EmailJS integration'
+    ],
+    date: 'January 2024',
+    duration: '2 weeks',
+  },
+];
+
+export default function ProjectPage() {
+  const params = useParams();
+  const id = Array.isArray(params.id) ? params.id[0] : params.id;
+  const [isLoading, setIsLoading] = useState(true);
+  const [project, setProject] = useState<any>(null);
+  
+  // Find the project by id
+  useEffect(() => {
+    const projectData = projectsData.find(p => p.id === id);
+    
+    if (projectData) {
+      setProject(projectData);
+    }
+    
+    // Simulate loading delay
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+    
+    return () => clearTimeout(timer);
+  }, [id]);
+  
+  // Use the page loading hook
+  usePageLoading(isLoading);
+  
+  if (!project && !isLoading) {
+    return (
+      <div className="min-h-screen bg-background pt-24 pb-16 flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-serif mb-4 text-foreground">Project Not Found</h1>
+          <p className="text-muted-foreground mb-6">The project you're looking for doesn't exist or has been removed.</p>
+          <Link 
+            href="/projects"
+            className="inline-flex items-center text-accent hover:underline"
+          >
+            <ChevronLeft className="h-4 w-4 mr-1" />
+            Back to Projects
+          </Link>
+        </div>
+      </div>
+    );
+  }
+  
+  return (
+    <div className="min-h-screen bg-background pt-24 pb-16">
+      <div className="container mx-auto px-4">
+        {!isLoading && project && (
+          <>
+            {/* Breadcrumb Navigation */}
+            <Breadcrumb
+              items={[
+                { label: 'Home', href: '/' },
+                { label: 'Projects', href: '/projects' },
+                { label: project.title, href: `/project/${project.id}`, current: true }
+              ]}
+            />
+
+            {/* Navigation */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-12"
+            >
+              <Link 
+                href="/projects"
+                className="project-link flex items-center text-accent text-sm hover:text-accent-foreground"
+              >
+                <ChevronLeft className="h-4 w-4 mr-1" />
+                Back to Projects
+              </Link>
+            </motion.div>
+            
+            {/* Project Header */}
+            <div className="mb-12">
+              <motion.h1 
+                className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.1 }}
+              >
+                {project.title}
+              </motion.h1>
+              
+              <motion.div 
+                className="flex flex-wrap gap-2 mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.2 }}
+              >
+                {project.tags.map((tag: string, index: number) => (
+                  <span 
+                    key={index}
+                    className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </motion.div>
+              
+              <motion.div 
+                className="flex items-center gap-4 text-sm"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.3 }}
+              >
+                <span className="text-muted-foreground">
+                  <strong>Completed:</strong> {project.date}
+                </span>
+                <span className="text-muted-foreground">
+                  <strong>Duration:</strong> {project.duration}
+                </span>
+                <span className="text-muted-foreground">
+                  <strong>Category:</strong> {project.category}
+                </span>
+              </motion.div>
+            </div>
+            
+            {/* Project Image */}
+            <motion.div 
+              className="mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <ImageContainer
+                src={project.image}
+                alt={project.title}
+                aspectRatio="16/9"
+                className="rounded-md mb-4 bg-muted glow-effect"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
+              />
+            </motion.div>
+            
+            {/* Project Links */}
+            <motion.div 
+              className="mb-16 flex flex-wrap gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.5 }}
+            >
+              {project.liveUrl && (
+                <a 
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2 bg-accent text-accent-foreground hover:bg-accent/90 px-6 py-3 rounded-md transition-colors"
+                >
+                  <ExternalLink className="h-4 w-4" />
+                  Visit Live Site
+                </a>
+              )}
+            </motion.div>
+            
+            {/* Project Description */}
+            <motion.div 
+              className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.6 }}
+            >
+              <div className="lg:col-span-2">
+                <h2 className="text-2xl font-serif mb-6 text-foreground">About the Project</h2>
+                <div className="prose prose-neutral dark:prose-invert max-w-none">
+                  <p className="whitespace-pre-line text-muted-foreground">
+                    {project.fullDescription}
+                  </p>
+                </div>
+              </div>
+              
+              <div>
+                <h2 className="text-2xl font-serif mb-6 text-foreground">Project Details</h2>
+                
+                <div className="space-y-8">
+                  {/* Goals */}
+                  <div>
+                    <h3 className="text-xl font-serif mb-4 text-foreground">Goals</h3>
+                    <ul className="space-y-2">
+                      {project.goals.map((goal: string, index: number) => (
+                        <li key={index} className="flex items-start gap-2 text-muted-foreground">
+                          <span className="h-5 w-5 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5">
+                            ✓
+                          </span>
+                          <span>{goal}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  
+                  {/* Technologies */}
+                  <div>
+                    <h3 className="text-xl font-serif mb-4 text-foreground">Technologies</h3>
+                    
+                    {project.technologies.frontend && (
+                      <div className="mb-4">
+                        <h4 className="text-sm uppercase tracking-wider text-muted-foreground mb-2">Frontend</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.frontend.map((tech: string, index: number) => (
+                            <span key={index} className="text-xs px-2 py-1 bg-card text-card-foreground rounded-sm border border-border">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    {project.technologies.backend && (
+                      <div className="mb-4">
+                        <h4 className="text-sm uppercase tracking-wider text-muted-foreground mb-2">Backend</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.backend.map((tech: string, index: number) => (
+                            <span key={index} className="text-xs px-2 py-1 bg-card text-card-foreground rounded-sm border border-border">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    {project.technologies.deployment && (
+                      <div className="mb-4">
+                        <h4 className="text-sm uppercase tracking-wider text-muted-foreground mb-2">Deployment</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.deployment.map((tech: string, index: number) => (
+                            <span key={index} className="text-xs px-2 py-1 bg-card text-card-foreground rounded-sm border border-border">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                    
+                    {project.technologies.other && (
+                      <div>
+                        <h4 className="text-sm uppercase tracking-wider text-muted-foreground mb-2">Other</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.technologies.other.map((tech: string, index: number) => (
+                            <span key={index} className="text-xs px-2 py-1 bg-card text-card-foreground rounded-sm border border-border">
+                              {tech}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Results */}
+                  <div>
+                    <h3 className="text-xl font-serif mb-4 text-foreground">Results</h3>
+                    <ul className="space-y-2">
+                      {project.results.map((result: string, index: number) => (
+                        <li key={index} className="flex items-start gap-2 text-muted-foreground">
+                          <span className="h-5 w-5 rounded-full bg-primary/20 text-primary flex items-center justify-center flex-shrink-0 mt-0.5">
+                            ✓
+                          </span>
+                          <span>{result}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+            
+            {/* Challenges */}
+            <motion.div 
+              className="mb-16"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+            >
+              <h2 className="text-2xl font-serif mb-6 text-foreground">Challenges & Solutions</h2>
+              <div className="bg-card p-6 rounded-lg border border-border">
+                <ul className="space-y-4">
+                  {project.challenges.map((challenge: string, index: number) => (
+                    <li key={index} className="text-muted-foreground">
+                      <span className="font-medium text-foreground">Challenge {index + 1}: </span> 
+                      {challenge}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </motion.div>
+            
+            {/* Navigation Links */}
+            <motion.div 
+              className="flex justify-between pt-8 border-t border-border"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.8 }}
+            >
+              <Link 
+                href="/projects"
+                className="project-link flex items-center text-accent hover:text-accent-foreground"
+              >
+                <ChevronLeft className="h-4 w-4 mr-1" />
+                Back to All Projects
+              </Link>
+              
+              {project.liveUrl && (
+                <a 
+                  href={project.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-link flex items-center text-accent hover:text-accent-foreground"
+                >
+                  Visit Live Site
+                  <ExternalLink className="h-4 w-4 ml-1" />
+                </a>
+              )}
+            </motion.div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+} 
