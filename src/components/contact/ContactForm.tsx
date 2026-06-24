@@ -37,14 +37,14 @@ const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [formspreeError, setFormspreeError] = useState<string | null>(null);
-  
+
   // Hardcoded Formspree form ID
-  const FORMSPREE_ID = 'mgvalwkd';
+  const FORMSPREE_ID = 'mojojjoa';
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormState((prev) => ({ ...prev, [name]: value }));
-    
+
     // Clear field-specific error when user starts typing
     if (errors[name]) {
       setErrors((prev) => {
@@ -54,7 +54,7 @@ const ContactForm = () => {
       });
     }
   };
-  
+
   const validateForm = (): boolean => {
     try {
       formSchema.parse(formState);
@@ -73,17 +73,17 @@ const ContactForm = () => {
       return false;
     }
   };
-  
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
-    
+
     setIsSubmitting(true);
     setFormspreeError(null);
-    
+
     try {
       const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: 'POST',
@@ -106,17 +106,17 @@ const ContactForm = () => {
         subject: '',
         message: '',
       });
-      
+
       // Reset form status after 5 seconds
       setTimeout(() => {
         setSubmitStatus('idle');
       }, 5000);
-      
+
     } catch (error) {
       console.error('Error sending message:', error);
       setSubmitStatus('error');
       setFormspreeError(error instanceof Error ? error.message : 'Failed to send message');
-      
+
       // Reset error status after 5 seconds
       setTimeout(() => {
         setSubmitStatus('idle');
@@ -128,7 +128,7 @@ const ContactForm = () => {
   };
 
   return (
-    <motion.div 
+    <motion.div
       className="contact-form-box"
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
@@ -136,21 +136,21 @@ const ContactForm = () => {
       transition={{ duration: 0.7 }}
     >
       <h3 className="font-serif text-2xl mb-6">Get In Touch</h3>
-      
+
       {submitStatus === 'success' && (
         <div className="form-success mb-6 flex items-center p-4 border border-green-500/20 bg-green-50 dark:bg-green-900/10 text-green-600 dark:text-green-400 rounded-md">
           <CheckCircle className="h-5 w-5 mr-2 flex-shrink-0" />
           <span>Your message has been sent successfully! I'll get back to you soon.</span>
         </div>
       )}
-      
+
       {submitStatus === 'error' && (
         <div className="form-error-message mb-6 flex items-center p-4 border border-red-500/20 bg-red-50 dark:bg-red-900/10 text-red-600 dark:text-red-400 rounded-md">
           <AlertCircle className="h-5 w-5 mr-2 flex-shrink-0" />
           <span>{formspreeError || 'There was an error sending your message. Please try again later or contact me directly via email.'}</span>
         </div>
       )}
-      
+
       <form ref={formRef} onSubmit={handleSubmit}>
         <div className="user-box">
           <input
@@ -166,7 +166,7 @@ const ContactForm = () => {
             <p className="form-error">{errors.name}</p>
           )}
         </div>
-        
+
         <div className="user-box">
           <input
             type="email"
@@ -181,7 +181,7 @@ const ContactForm = () => {
             <p className="form-error">{errors.email}</p>
           )}
         </div>
-        
+
         <div className="user-box">
           <input
             type="text"
@@ -196,7 +196,7 @@ const ContactForm = () => {
             <p className="form-error">{errors.subject}</p>
           )}
         </div>
-        
+
         <div className="user-box">
           <textarea
             id="message"
@@ -210,7 +210,7 @@ const ContactForm = () => {
             <p className="form-error">{errors.message}</p>
           )}
         </div>
-        
+
         <div className="text-center">
           <button type="submit" disabled={isSubmitting}>
             {isSubmitting ? 'SENDING...' : 'SEND'}
