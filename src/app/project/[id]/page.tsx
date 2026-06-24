@@ -53,114 +53,114 @@ const projectsData = [
       'Reduce developer effort and errors in backend system design'
     ],
     technologies: {
-       frontend: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Mermaid.js'],
-       backend: ['Python Flask', 'REST APIs', 'SQLite (state management)'],
-       ai: ['Groq API Integration', 'AI-assisted Schema Generation', 'Context-Aware Chat'],
-       databaseSupport: ['PostgreSQL', 'MySQL', 'SQLite'],
-       visualization: ['Mermaid ER Diagrams', 'Interactive Schema Visualization'],
-       automation: ['MCP (Model Context Protocol)', 'Schema Automation Tools'],
-       authentication: ['Clerk'],
-       billing: ['Razorpay (Subscriptions & Trial System)'],
-       devTools: ['SQL Workspace', 'Query Runner', 'Schema Analyzer'],
-       deployment: ['Vercel (Frontend)', 'Custom Backend Hosting'],
-       other: ['CSV Processing', 'Migration Planning', 'Normalization Algorithms (3NF)', 'Schema Optimization Algorithms']
-  },  
+      frontend: ['React', 'TypeScript', 'Vite', 'Tailwind CSS', 'Mermaid.js'],
+      backend: ['Python Flask', 'REST APIs', 'SQLite (state management)'],
+      ai: ['Groq API Integration', 'AI-assisted Schema Generation', 'Context-Aware Chat'],
+      databaseSupport: ['PostgreSQL', 'MySQL', 'SQLite'],
+      visualization: ['Mermaid ER Diagrams', 'Interactive Schema Visualization'],
+      automation: ['MCP (Model Context Protocol)', 'Schema Automation Tools'],
+      authentication: ['Clerk'],
+      billing: ['Razorpay (Subscriptions & Trial System)'],
+      devTools: ['SQL Workspace', 'Query Runner', 'Schema Analyzer'],
+      deployment: ['Vercel (Frontend)', 'Custom Backend Hosting'],
+      other: ['CSV Processing', 'Migration Planning', 'Normalization Algorithms (3NF)', 'Schema Optimization Algorithms']
+    },
     challenges: [
-       'Designing a hybrid system combining deterministic normalization with AI reasoning for reliable schema generation',
-       'Ensuring accurate 3NF normalization across diverse and unstructured datasets',
-       'Building a context-aware schema chat system for iterative design refinement',
-       'Maintaining compatibility across PostgreSQL, MySQL, and SQLite engines',
-       'Developing a full-featured SQL workspace with execution and optimization capabilities',
-       'Implementing MCP for real-time AI-agent interaction with project schemas',
-       'Designing a scalable billing system with trials, subscriptions, and usage credits',
-       'Optimizing performance for large datasets and complex schema transformations'
-  ],
+      'Designing a hybrid system combining deterministic normalization with AI reasoning for reliable schema generation',
+      'Ensuring accurate 3NF normalization across diverse and unstructured datasets',
+      'Building a context-aware schema chat system for iterative design refinement',
+      'Maintaining compatibility across PostgreSQL, MySQL, and SQLite engines',
+      'Developing a full-featured SQL workspace with execution and optimization capabilities',
+      'Implementing MCP for real-time AI-agent interaction with project schemas',
+      'Designing a scalable billing system with trials, subscriptions, and usage credits',
+      'Optimizing performance for large datasets and complex schema transformations'
+    ],
     results: [
-       'Reduced manual database design effort by approximately 70% through automation and AI-assisted workflows',
-       'Enabled schema generation from raw datasets and ideas in under 5–10 seconds',
-       'Improved database design quality by enforcing 3NF normalization and eliminating redundancy',
-       'Delivered an all-in-one platform combining schema generation, SQL execution, and live database analysis',
-       'Enabled AI-agent integration via MCP, introducing automated schema workflows across development environments',
-       'Built a monetizable SaaS product with trial-to-subscription flow using Razorpay',
-       'Significantly enhanced developer productivity by eliminating repetitive schema and migration tasks',
-       'Established a scalable foundation for future AI-driven backend engineering systems'
-  ],
+      'Reduced manual database design effort by approximately 70% through automation and AI-assisted workflows',
+      'Enabled schema generation from raw datasets and ideas in under 5–10 seconds',
+      'Improved database design quality by enforcing 3NF normalization and eliminating redundancy',
+      'Delivered an all-in-one platform combining schema generation, SQL execution, and live database analysis',
+      'Enabled AI-agent integration via MCP, introducing automated schema workflows across development environments',
+      'Built a monetizable SaaS product with trial-to-subscription flow using Razorpay',
+      'Significantly enhanced developer productivity by eliminating repetitive schema and migration tasks',
+      'Established a scalable foundation for future AI-driven backend engineering systems'
+    ],
     date: 'April 2026',
     duration: '1 months',
   },
   {
-  id: 'smartmess',
-  title: 'SmartMess | Smart Mess & Meal Management SaaS Platform',
-  description: 'A full-stack SaaS platform designed to digitize and automate hostel mess operations, including meal tracking, subscription management, billing, and administrative workflows. The system improves operational efficiency, reduces manual errors, and provides real-time visibility into mess activities.',
+    id: 'smartmess',
+    title: 'SmartMess | Smart Mess & Meal Management SaaS Platform',
+    description: 'A full-stack SaaS platform designed to digitize and automate hostel mess operations, including meal tracking, subscription management, billing, and administrative workflows. The system improves operational efficiency, reduces manual errors, and provides real-time visibility into mess activities.',
 
-  image: '/smartmess.png',
+    image: '/smartmess.png',
 
-  tags: [
-    'SaaS',
-    'Full Stack',
-    'Mess Management',
-    'React',
-    'Node.js',
-    'MongoDB',
-    'REST API',
-    'Authentication',
-    'Dashboard UI'
-  ],
+    tags: [
+      'SaaS',
+      'Full Stack',
+      'Mess Management',
+      'React',
+      'Node.js',
+      'MongoDB',
+      'REST API',
+      'Authentication',
+      'Dashboard UI'
+    ],
 
-  liveUrl: 'https://smart-mess-blond.vercel.app/',
-  featured: true,
-  category: 'SaaS / Management Platform',
+    liveUrl: 'https://smart-mess-blond.vercel.app/',
+    featured: true,
+    category: 'SaaS / Management Platform',
 
-  goals: [
-    'Digitize and automate hostel mess operations and workflows',
-    'Enable efficient meal tracking and daily consumption monitoring',
-    'Implement subscription-based meal plans with flexible billing cycles',
-    'Provide role-based dashboards for admins and users',
-    'Ensure secure authentication and user data management',
-    'Offer real-time updates on meals, attendance, and billing',
-    'Reduce manual record-keeping and operational overhead',
-    'Build a scalable system adaptable to multiple institutions'
-  ],
+    goals: [
+      'Digitize and automate hostel mess operations and workflows',
+      'Enable efficient meal tracking and daily consumption monitoring',
+      'Implement subscription-based meal plans with flexible billing cycles',
+      'Provide role-based dashboards for admins and users',
+      'Ensure secure authentication and user data management',
+      'Offer real-time updates on meals, attendance, and billing',
+      'Reduce manual record-keeping and operational overhead',
+      'Build a scalable system adaptable to multiple institutions'
+    ],
 
-  technologies: {
-    frontend: ['React', 'JavaScript', 'CSS', 'Responsive UI'],
-    backend: ['Node.js', 'Express.js', 'REST APIs'],
-    database: ['MongoDB'],
-    authentication: ['JWT / Session-based Auth'],
-    stateManagement: ['Context API / Local State'],
-    deployment: ['Vercel (Frontend)', 'Backend Hosting'],
-    other: [
-      'CRUD Operations',
-      'Form Handling',
-      'API Integration',
-      'Dashboard Analytics (Basic)'
-    ]
-  },
+    technologies: {
+      frontend: ['React', 'JavaScript', 'CSS', 'Responsive UI'],
+      backend: ['Node.js', 'Express.js', 'REST APIs'],
+      database: ['MongoDB'],
+      authentication: ['JWT / Session-based Auth'],
+      stateManagement: ['Context API / Local State'],
+      deployment: ['Vercel (Frontend)', 'Backend Hosting'],
+      other: [
+        'CRUD Operations',
+        'Form Handling',
+        'API Integration',
+        'Dashboard Analytics (Basic)'
+      ]
+    },
 
-  challenges: [
-    'Designing a scalable system to handle multiple users and mess records efficiently',
-    'Implementing accurate meal tracking and subscription logic',
-    'Ensuring data consistency between frontend and backend systems',
-    'Building secure authentication and session management',
-    'Creating intuitive dashboards for both admin and user roles',
-    'Handling real-time updates and dynamic UI rendering',
-    'Optimizing performance for frequent data operations',
-    'Structuring the database schema for flexibility and scalability'
-  ],
+    challenges: [
+      'Designing a scalable system to handle multiple users and mess records efficiently',
+      'Implementing accurate meal tracking and subscription logic',
+      'Ensuring data consistency between frontend and backend systems',
+      'Building secure authentication and session management',
+      'Creating intuitive dashboards for both admin and user roles',
+      'Handling real-time updates and dynamic UI rendering',
+      'Optimizing performance for frequent data operations',
+      'Structuring the database schema for flexibility and scalability'
+    ],
 
-  results: [
-    'Digitized core mess operations, eliminating manual record-keeping',
-    'Improved operational efficiency and reduced human errors in tracking',
-    'Enabled real-time monitoring of meals and user activity',
-    'Provided a centralized platform for subscription and billing management',
-    'Enhanced user experience through responsive and dashboard-driven UI',
-    'Built a scalable foundation for multi-hostel deployment',
-    'Reduced administrative workload through automation of repetitive tasks',
-    'Delivered a production-ready full-stack SaaS application'
-  ],
+    results: [
+      'Digitized core mess operations, eliminating manual record-keeping',
+      'Improved operational efficiency and reduced human errors in tracking',
+      'Enabled real-time monitoring of meals and user activity',
+      'Provided a centralized platform for subscription and billing management',
+      'Enhanced user experience through responsive and dashboard-driven UI',
+      'Built a scalable foundation for multi-hostel deployment',
+      'Reduced administrative workload through automation of repetitive tasks',
+      'Delivered a production-ready full-stack SaaS application'
+    ],
 
-  date: '2026',
-  duration: '1–2 months'
+    date: '2026',
+    duration: '1–2 months'
   },
   {
     id: 'startupops',
@@ -214,26 +214,26 @@ const projectsData = [
       other: ['Circuit Breaker Pattern', 'Load Balancing', 'Health Monitoring'],
     },
     challenges: [
-       'Designing an AI system capable of generating reliable, actionable insights from limited and evolving startup data',
-       'Implementing RAG architecture to deliver context-aware responses across diverse business workflows',
-       'Building a resilient multi-API key system with circuit breaker patterns and automatic failover',
-       'Creating intuitive dashboards that abstract complex business metrics into clear insights',
-       'Optimizing performance in a serverless environment using Redis caching and data reuse strategies',
-       'Ensuring secure multi-tenant access with Row-Level Security (RLS) in Supabase',
-       'Handling real-time data updates for analytics, workflows, and collaborative features',
-       'Balancing advanced functionality with a clean, user-friendly experience for non-technical founders'
+      'Designing an AI system capable of generating reliable, actionable insights from limited and evolving startup data',
+      'Implementing RAG architecture to deliver context-aware responses across diverse business workflows',
+      'Building a resilient multi-API key system with circuit breaker patterns and automatic failover',
+      'Creating intuitive dashboards that abstract complex business metrics into clear insights',
+      'Optimizing performance in a serverless environment using Redis caching and data reuse strategies',
+      'Ensuring secure multi-tenant access with Row-Level Security (RLS) in Supabase',
+      'Handling real-time data updates for analytics, workflows, and collaborative features',
+      'Balancing advanced functionality with a clean, user-friendly experience for non-technical founders'
     ],
     results: [
-       'Engineered a production-grade AI SaaS platform that centralizes startup operations, enabling faster execution and data-driven decision-making',
-       'Built an intelligent AI assistant delivering real-time, context-aware business insights and strategic recommendations',
-       'Reduced API latency and operational costs by implementing Redis caching and optimized response reuse strategies',
-       'Designed a scalable architecture capable of supporting hundreds of daily active users with consistent performance',
-       'Delivered real-time analytics dashboards that significantly improve KPI visibility and decision speed',
-       'Enabled natural language interaction with business data, eliminating the need for manual analysis and technical queries',
-       'Implemented secure, multi-tenant architecture using Supabase Row-Level Security (RLS) for strict data isolation',
-       'Architected a modular and extensible system, allowing rapid feature expansion and long-term scalability',
-       'Integrated fault-tolerant multi-API infrastructure with circuit breaker patterns, ensuring high availability and reliability',
-       'Streamlined startup workflows through intelligent automation, reducing manual effort and operational overhead'
+      'Engineered a production-grade AI SaaS platform that centralizes startup operations, enabling faster execution and data-driven decision-making',
+      'Built an intelligent AI assistant delivering real-time, context-aware business insights and strategic recommendations',
+      'Reduced API latency and operational costs by implementing Redis caching and optimized response reuse strategies',
+      'Designed a scalable architecture capable of supporting hundreds of daily active users with consistent performance',
+      'Delivered real-time analytics dashboards that significantly improve KPI visibility and decision speed',
+      'Enabled natural language interaction with business data, eliminating the need for manual analysis and technical queries',
+      'Implemented secure, multi-tenant architecture using Supabase Row-Level Security (RLS) for strict data isolation',
+      'Architected a modular and extensible system, allowing rapid feature expansion and long-term scalability',
+      'Integrated fault-tolerant multi-API infrastructure with circuit breaker patterns, ensuring high availability and reliability',
+      'Streamlined startup workflows through intelligent automation, reducing manual effort and operational overhead'
     ],
     date: 'February 2026',
     duration: '1.5 months',
@@ -583,7 +583,7 @@ const projectsData = [
     `,
     image: '/portfolio.png',
     tags: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'EmailJS'],
-    liveUrl: 'https://abhijeet-portfolio.vercel.app',
+    liveUrl: 'https://aryan-webdev.vercel.app/',
     featured: false,
     category: 'Web App',
     goals: [
@@ -620,33 +620,33 @@ export default function ProjectPage() {
   const id = Array.isArray(params.id) ? params.id[0] : params.id;
   const [isLoading, setIsLoading] = useState(true);
   const [project, setProject] = useState<any>(null);
-  
+
   // Find the project by id
   useEffect(() => {
     const projectData = projectsData.find(p => p.id === id);
-    
+
     if (projectData) {
       setProject(projectData);
     }
-    
+
     // Simulate loading delay
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 800);
-    
+
     return () => clearTimeout(timer);
   }, [id]);
-  
+
   // Use the page loading hook
   usePageLoading(isLoading);
-  
+
   if (!project && !isLoading) {
     return (
       <div className="min-h-screen bg-background pt-24 pb-16 flex items-center justify-center">
         <div className="text-center">
           <h1 className="text-2xl font-serif mb-4 text-foreground">Project Not Found</h1>
           <p className="text-muted-foreground mb-6">The project you're looking for doesn't exist or has been removed.</p>
-          <Link 
+          <Link
             href="/projects"
             className="inline-flex items-center text-accent hover:underline"
           >
@@ -657,7 +657,7 @@ export default function ProjectPage() {
       </div>
     );
   }
-  
+
   return (
     <div className="min-h-screen bg-background pt-24 pb-16">
       <div className="container mx-auto px-4">
@@ -679,7 +679,7 @@ export default function ProjectPage() {
               transition={{ duration: 0.5 }}
               className="mb-12"
             >
-              <Link 
+              <Link
                 href="/projects"
                 className="project-link flex items-center text-accent text-sm hover:text-accent-foreground"
               >
@@ -687,10 +687,10 @@ export default function ProjectPage() {
                 Back to Projects
               </Link>
             </motion.div>
-            
+
             {/* Project Header */}
             <div className="mb-12">
-              <motion.h1 
+              <motion.h1
                 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -698,15 +698,15 @@ export default function ProjectPage() {
               >
                 {project.title}
               </motion.h1>
-              
-              <motion.div 
+
+              <motion.div
                 className="flex flex-wrap gap-2 mb-6"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
               >
                 {project.tags.map((tag: string, index: number) => (
-                  <span 
+                  <span
                     key={index}
                     className="text-xs px-3 py-1 bg-primary/10 text-primary rounded-full"
                   >
@@ -714,8 +714,8 @@ export default function ProjectPage() {
                   </span>
                 ))}
               </motion.div>
-              
-              <motion.div 
+
+              <motion.div
                 className="flex items-center gap-4 text-sm"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -732,9 +732,9 @@ export default function ProjectPage() {
                 </span>
               </motion.div>
             </div>
-            
+
             {/* Project Image */}
-            <motion.div 
+            <motion.div
               className="mb-16"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -748,16 +748,16 @@ export default function ProjectPage() {
                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 60vw"
               />
             </motion.div>
-            
+
             {/* Project Links */}
-            <motion.div 
+            <motion.div
               className="mb-16 flex flex-wrap gap-4"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
             >
               {project.liveUrl && (
-                <a 
+                <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
@@ -768,9 +768,9 @@ export default function ProjectPage() {
                 </a>
               )}
             </motion.div>
-            
+
             {/* Project Description */}
-            <motion.div 
+            <motion.div
               className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -784,10 +784,10 @@ export default function ProjectPage() {
                   </p>
                 </div>
               </div>
-              
+
               <div>
                 <h2 className="text-2xl font-serif mb-6 text-foreground">Project Details</h2>
-                
+
                 <div className="space-y-8">
                   {/* Goals */}
                   <div>
@@ -803,11 +803,11 @@ export default function ProjectPage() {
                       ))}
                     </ul>
                   </div>
-                  
+
                   {/* Technologies */}
                   <div>
                     <h3 className="text-xl font-serif mb-4 text-foreground">Technologies</h3>
-                    
+
                     {project.technologies.frontend && (
                       <div className="mb-4">
                         <h4 className="text-sm uppercase tracking-wider text-muted-foreground mb-2">Frontend</h4>
@@ -820,7 +820,7 @@ export default function ProjectPage() {
                         </div>
                       </div>
                     )}
-                    
+
                     {project.technologies.backend && (
                       <div className="mb-4">
                         <h4 className="text-sm uppercase tracking-wider text-muted-foreground mb-2">Backend</h4>
@@ -833,7 +833,7 @@ export default function ProjectPage() {
                         </div>
                       </div>
                     )}
-                    
+
                     {project.technologies.deployment && (
                       <div className="mb-4">
                         <h4 className="text-sm uppercase tracking-wider text-muted-foreground mb-2">Deployment</h4>
@@ -846,7 +846,7 @@ export default function ProjectPage() {
                         </div>
                       </div>
                     )}
-                    
+
                     {project.technologies.other && (
                       <div>
                         <h4 className="text-sm uppercase tracking-wider text-muted-foreground mb-2">Other</h4>
@@ -860,7 +860,7 @@ export default function ProjectPage() {
                       </div>
                     )}
                   </div>
-                  
+
                   {/* Results */}
                   <div>
                     <h3 className="text-xl font-serif mb-4 text-foreground">Results</h3>
@@ -878,9 +878,9 @@ export default function ProjectPage() {
                 </div>
               </div>
             </motion.div>
-            
+
             {/* Challenges */}
-            <motion.div 
+            <motion.div
               className="mb-16"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -891,31 +891,31 @@ export default function ProjectPage() {
                 <ul className="space-y-4">
                   {project.challenges.map((challenge: string, index: number) => (
                     <li key={index} className="text-muted-foreground">
-                      <span className="font-medium text-foreground">Challenge {index + 1}: </span> 
+                      <span className="font-medium text-foreground">Challenge {index + 1}: </span>
                       {challenge}
                     </li>
                   ))}
                 </ul>
               </div>
             </motion.div>
-            
+
             {/* Navigation Links */}
-            <motion.div 
+            <motion.div
               className="flex justify-between pt-8 border-t border-border"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
             >
-              <Link 
+              <Link
                 href="/projects"
                 className="project-link flex items-center text-accent hover:text-accent-foreground"
               >
                 <ChevronLeft className="h-4 w-4 mr-1" />
                 Back to All Projects
               </Link>
-              
+
               {project.liveUrl && (
-                <a 
+                <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"

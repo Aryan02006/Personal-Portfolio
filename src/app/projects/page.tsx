@@ -130,7 +130,7 @@ const allProjects = [
     description: 'A modern, fully animated portfolio built using Next.js, showcasing projects, skills, and contact info, with smooth transitions and a professional UI. Features include fully responsive and modern UI, smooth animations using Framer Motion, integrated contact form with EmailJS, projects section with live links, and optimization for fast performance & SEO.',
     image: '/portfolio.png',
     tags: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'EmailJS'],
-    liveUrl: 'https://portfolio-cyan-tau-81.vercel.app/',
+    liveUrl: 'https://aryan-webdev.vercel.app/',
     featured: false,
     category: 'Web App',
   },
