@@ -11,8 +11,8 @@ import Breadcrumb from '@/components/ui/breadcrumb';
 // Animation variants
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.6, ease: "easeOut" }
   }
@@ -32,13 +32,13 @@ const FadeInWhenVisible = ({ children, className }: { children: React.ReactNode,
   const controls = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.2 });
-  
+
   useEffect(() => {
     if (inView) {
       controls.start("visible");
     }
   }, [controls, inView]);
-  
+
   return (
     <motion.div
       ref={ref}
@@ -65,14 +65,14 @@ const allProjects = [
     category: 'AI / Developer Tooling Platform',
   },
   {
-  id: 'smartmess',
-  title: 'SmartMess | AI-Ready Mess Automation & Management Platform',
-  description: 'A modern SaaS-based mess management system that automates meal planning, subscription handling, and billing workflows. Features role-based dashboards, real-time data tracking, and a responsive UI, reducing manual overhead and improving operational efficiency for hostels and institutions.',
-  image: '/smartmess.png',
-  tags: ['SaaS', 'Full Stack', 'React', 'Node.js', 'MongoDB', 'Role-Based Access', 'Dashboard', 'Automation'],
-  liveUrl: 'https://smart-mess-blond.vercel.app/',
-  featured: true,
-  category: 'SaaS / Management Platform',
+    id: 'smartmess',
+    title: 'SmartMess | AI-Ready Mess Automation & Management Platform',
+    description: 'A modern SaaS-based mess management system that automates meal planning, subscription handling, and billing workflows. Features role-based dashboards, real-time data tracking, and a responsive UI, reducing manual overhead and improving operational efficiency for hostels and institutions.',
+    image: '/smartmess.png',
+    tags: ['SaaS', 'Full Stack', 'React', 'Node.js', 'MongoDB', 'Role-Based Access', 'Dashboard', 'Automation'],
+    liveUrl: 'https://smart-mess-blond.vercel.app/',
+    featured: true,
+    category: 'SaaS / Management Platform',
   },
   {
     id: 'insightflow',
@@ -130,7 +130,7 @@ const allProjects = [
     description: 'A modern, fully animated portfolio built using Next.js, showcasing projects, skills, and contact info, with smooth transitions and a professional UI. Features include fully responsive and modern UI, smooth animations using Framer Motion, integrated contact form with EmailJS, projects section with live links, and optimization for fast performance & SEO.',
     image: '/portfolio.png',
     tags: ['Next.js', 'Framer Motion', 'Tailwind CSS', 'EmailJS'],
-    liveUrl: 'https://abhijeets-portfolio.vercel.app',
+    liveUrl: 'https://portfolio-cyan-tau-81.vercel.app/',
     featured: false,
     category: 'Web App',
   },
@@ -152,19 +152,19 @@ const allTags = Array.from(new Set(allProjects.flatMap(project => project.tags))
 
 export default function ProjectsPage() {
   const [isLoading, setIsLoading] = useState(true);
-  
+
   // Simulate loading delay
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 800);
-    
+
     return () => clearTimeout(timer);
   }, []);
-  
+
   // Use the page loading hook
   usePageLoading(isLoading, 'binary');
-  
+
   return (
     <div className="min-h-screen bg-background pt-24 pb-16">
       <div className="container mx-auto px-4">
@@ -181,46 +181,46 @@ export default function ProjectsPage() {
               <ChevronLeft className="h-4 w-4 mr-1" />
               Back to Home
             </Link>
-            
+
             <h1 className="text-4xl md:text-5xl font-serif font-bold text-foreground mb-6">
               My Projects
             </h1>
-            
+
             <p className="text-muted-foreground max-w-2xl">
-              Explore my full portfolio of projects spanning web applications, mobile development, 
+              Explore my full portfolio of projects spanning web applications, mobile development,
               AI integrations, and more. Each project represents a unique challenge and solution.
             </p>
           </div>
         </FadeInWhenVisible>
-        
+
         {/* Projects Display */}
         <FadeInWhenVisible>
           <div className="relative py-10">
             <div className="absolute inset-0 bg-gradient-to-r from-accent/5 via-primary/5 to-accent/5 z-0 rounded-xl"></div>
-            
+
             <div className="relative z-10">
-              <motion.div 
+              <motion.div
                 className="flex flex-wrap gap-8 items-start justify-center"
                 variants={staggerContainer}
                 initial="hidden"
                 animate="visible"
               >
                 {allProjects.map((project, index) => (
-                  <motion.div 
+                  <motion.div
                     key={project.id}
                     className="project-card-wrapper w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.5rem)] xl:w-[calc(25%-1.5rem)]"
                     initial={{ opacity: 0, y: 20 }}
-                    animate={{ 
-                      opacity: 1, 
+                    animate={{
+                      opacity: 1,
                       y: 0,
-                      transition: { 
+                      transition: {
                         delay: index * 0.1,
                         duration: 0.5
                       }
                     }}
-                    whileHover={{ 
-                      scale: 1.03, 
-                      transition: { duration: 0.2 } 
+                    whileHover={{
+                      scale: 1.03,
+                      transition: { duration: 0.2 }
                     }}
                   >
                     <ProjectCard
@@ -238,10 +238,10 @@ export default function ProjectsPage() {
             </div>
           </div>
         </FadeInWhenVisible>
-        
+
         {/* Back to Top */}
         <div className="text-center mt-16">
-          <button 
+          <button
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
             className="inline-flex items-center gap-2 border border-primary text-primary px-8 py-3 text-sm tracking-wider uppercase font-medium hover:bg-primary/5 transition-colors"
           >
