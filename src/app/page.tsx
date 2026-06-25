@@ -601,7 +601,7 @@ export default function Home() {
                     <h3 className="text-xl font-serif font-bold text-foreground"> Generative Al Mastermind</h3>
                     <p className="certification-issuer text-sm text-muted-foreground mt-1">Outskill</p>
                     <div className="mt-4 text-foreground">
-                      <p>Gained a strong foundation in computer science, mastering topics like algorithms, data structures, and web development. Completed Python and C projects, applying problem-solving skills to real-world scenarios.</p>
+                      <p>Developed expertise in Generative AI, prompt engineering, and LLMs through Outskill's Generative AI Mastermind. Leveraged modern AI tools to develop intelligent solutions and explore real-world AI applications.</p>
                     </div>
                   </div>
                   <div className="flex flex-col items-end justify-between">
