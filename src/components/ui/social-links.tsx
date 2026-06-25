@@ -59,7 +59,7 @@ export function SocialLinks() {
         color="instagram"
       />
       <SocialLink 
-        href="mailto:engineer.aryan084@gmail.com"
+        href="mailto:aryan.pandey01x@gmail.com"
         icon={<Mail size={20} />}
         label="Email"
         color="email"

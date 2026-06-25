@@ -68,9 +68,9 @@ const Footer = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:your-engineer.aryan084@gmail.com" className="text-muted-foreground hover:text-accent transition-colors flex items-center">
+                  <a href="mailto:aryan.pandey01x@gmail.com" className="text-muted-foreground hover:text-accent transition-colors flex items-center">
                     <Mail className="h-4 w-4 mr-2" />
-                    engineer.aryan084@gmail.com
+                    aryan.pandey01x@gmail.com
                   </a>
                 </li>
                 <li className="pt-1">
