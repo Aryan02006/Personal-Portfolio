@@ -16,8 +16,8 @@ import { BlogPreview } from '@/components/blog';
 // Animation variants
 const fadeIn = {
   hidden: { opacity: 0, y: 20 },
-  visible: { 
-    opacity: 1, 
+  visible: {
+    opacity: 1,
     y: 0,
     transition: { duration: 0.8, ease: "easeOut" }
   }
@@ -27,7 +27,7 @@ const staggerContainer = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-      transition: {
+    transition: {
       staggerChildren: 0.2
     }
   }
@@ -37,13 +37,13 @@ const FadeInWhenVisible = ({ children, className }: { children: React.ReactNode,
   const controls = useAnimation();
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, amount: 0.2 });
-  
+
   useEffect(() => {
     if (inView) {
       controls.start("visible");
     }
   }, [controls, inView]);
-  
+
   return (
     <motion.div
       ref={ref}
@@ -70,14 +70,14 @@ const projects = [
     category: 'AI / Developer Tooling Platform',
   },
   {
-  id: 'smartmess',
-  title: 'SmartMess | AI-Ready Mess Automation & Management Platform',
-  description: 'A modern SaaS-based mess management system that automates meal planning, subscription handling, and billing workflows. Features role-based dashboards, real-time data tracking, and a responsive UI, reducing manual overhead and improving operational efficiency for hostels and institutions.',
-  image: '/smartmess.png',
-  tags: ['SaaS', 'Full Stack', 'React', 'Node.js', 'MongoDB', 'Role-Based Access', 'Dashboard', 'Automation'],
-  liveUrl: 'https://smart-mess-blond.vercel.app/',
-  featured: true,
-  category: 'SaaS / Management Platform',
+    id: 'smartmess',
+    title: 'SmartMess | AI-Ready Mess Automation & Management Platform',
+    description: 'A modern SaaS-based mess management system that automates meal planning, subscription handling, and billing workflows. Features role-based dashboards, real-time data tracking, and a responsive UI, reducing manual overhead and improving operational efficiency for hostels and institutions.',
+    image: '/smartmess.png',
+    tags: ['SaaS', 'Full Stack', 'React', 'Node.js', 'MongoDB', 'Role-Based Access', 'Dashboard', 'Automation'],
+    liveUrl: 'https://smart-mess-blond.vercel.app/',
+    featured: true,
+    category: 'SaaS / Management Platform',
   },
   {
     id: 'startupops',
@@ -179,16 +179,16 @@ const roles = [
 export default function Home() {
   // Use the loading hook for page transitions
   usePageLoading(false);
-  
+
   // State for cycling through developer roles
   const [roleIndex, setRoleIndex] = useState(0);
-  
+
   // Effect to cycle through roles
   useEffect(() => {
     const interval = setInterval(() => {
       setRoleIndex((prevIndex) => (prevIndex + 1) % roles.length);
     }, 3000);
-    
+
     return () => clearInterval(interval);
   }, []);
 
@@ -201,9 +201,9 @@ export default function Home() {
         <div className="absolute -z-10 bottom-20 left-[20%] w-60 h-60 bg-pink-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }}></div>
         <div className="absolute -z-10 top-40 right-[10%] w-72 h-72 bg-amber-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }}></div>
         <div className="absolute -z-10 bottom-40 right-[15%] w-48 h-48 bg-green-500/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }}></div>
-        
+
         <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between">
-          <motion.div 
+          <motion.div
             className="lg:w-1/2"
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -229,8 +229,8 @@ export default function Home() {
               </div>
             </div>
           </motion.div>
-          
-          <motion.div 
+
+          <motion.div
             className="lg:w-1/2 mt-12 lg:mt-0 relative"
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -246,14 +246,14 @@ export default function Home() {
               imageClassName="relative z-10"
               objectPosition="center top"
             />
-            <motion.div 
+            <motion.div
               className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 z-20"
               initial={{ y: 20, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.5 }}
             >
               <div className="role-badge-container">
-                <motion.span 
+                <motion.span
                   key={roleIndex}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -294,10 +294,10 @@ export default function Home() {
                     <p className="certification-issuer text-sm text-muted-foreground mt-1">Bandhan of Dreams</p>
                     <div className="mt-4 text-foreground">
                       <ul className="space-y-3 list-disc pl-5">
-                          <li>Built and deployed a full stack Shopify-based eCommerce platform with product management, secure authentication, and payment integration</li>
-                          <li>Developed scalable web applications with responsive frontend and efficient backend APIs, ensuring smooth performance and user experience</li>
-                          <li>Passionate Full Stack Developer focused on solving real-world problems through clean, optimized, and maintainable code</li>
-                      </ul> 
+                        <li>Built and deployed a full stack Shopify-based eCommerce platform with product management, secure authentication, and payment integration</li>
+                        <li>Developed scalable web applications with responsive frontend and efficient backend APIs, ensuring smooth performance and user experience</li>
+                        <li>Passionate Full Stack Developer focused on solving real-world problems through clean, optimized, and maintainable code</li>
+                      </ul>
                     </div>
                   </div>
                   <div className="flex flex-col items-end justify-between">
@@ -446,7 +446,7 @@ export default function Home() {
               Skills & Technologies
             </h2>
           </FadeInWhenVisible>
-          
+
           <div className="max-w-5xl mx-auto">
             <FadeInWhenVisible>
               <div className="flex flex-col space-y-12">
@@ -492,7 +492,7 @@ export default function Home() {
                     </div>
                   </div>
                 </div>
-                
+
                 {/* Frameworks/Libraries */}
                 <div>
                   <h3 className="text-xl font-serif mb-6 text-gradient-pink skills-category">Frameworks/Libraries:</h3>
@@ -532,10 +532,10 @@ export default function Home() {
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" alt="Tailwind" className="max-h-full" />
                       </div>
                       <span className="text-xs mt-2 text-muted-foreground">Tailwind</span>
+                    </div>
+                  </div>
                 </div>
-              </div>
-                </div>
-                
+
                 {/* Tools and Software */}
                 <div>
                   <h3 className="text-xl font-serif mb-6 text-gradient-amber skills-category">Tools and Software:</h3>
@@ -575,8 +575,8 @@ export default function Home() {
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" className="max-h-full" />
                       </div>
                       <span className="text-xs mt-2 text-muted-foreground">MySQL</span>
-                </div>
-              </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </FadeInWhenVisible>
@@ -592,20 +592,20 @@ export default function Home() {
               Certifications
             </h2>
           </FadeInWhenVisible>
-          
+
           <div className="max-w-4xl mx-auto space-y-8">
             <FadeInWhenVisible>
               <div className="certification-card bg-card p-6 rounded-sm border border-border hover:shadow-lg transition-shadow">
                 <div className="flex flex-col md:flex-row justify-between gap-4">
                   <div>
-                    <h3 className="text-xl font-serif font-bold text-foreground">CS50's Introduction to Computer Science</h3>
-                    <p className="certification-issuer text-sm text-muted-foreground mt-1">Harvard University (edX)</p>
+                    <h3 className="text-xl font-serif font-bold text-foreground"> Generative Al Mastermind</h3>
+                    <p className="certification-issuer text-sm text-muted-foreground mt-1">Outskill</p>
                     <div className="mt-4 text-foreground">
                       <p>Gained a strong foundation in computer science, mastering topics like algorithms, data structures, and web development. Completed Python and C projects, applying problem-solving skills to real-world scenarios.</p>
                     </div>
                   </div>
                   <div className="flex flex-col items-end justify-between">
-                    <span className="certification-date">July 2025</span>
+                    <span className="certification-date">April 2026</span>
                     {/* <Link 
                       href="#" 
                       className="text-accent hover:underline text-sm whitespace-nowrap flex items-center mt-2"
@@ -616,7 +616,7 @@ export default function Home() {
                 </div>
               </div>
             </FadeInWhenVisible>
-            
+
             <FadeInWhenVisible>
               <div className="certification-card bg-card p-6 rounded-sm border border-border hover:shadow-lg transition-shadow">
                 <div className="flex flex-col md:flex-row justify-between gap-4">
@@ -643,14 +643,14 @@ export default function Home() {
           <FadeInWhenVisible>
             <h2 className="text-3xl font-serif font-bold mb-16 text-foreground text-center">
               Leadership / Extracurricular
-          </h2>
+            </h2>
           </FadeInWhenVisible>
-          
+
           <div className="max-w-4xl mx-auto space-y-8">
             <FadeInWhenVisible>
               <div className="certification-card bg-card p-6 rounded-sm border border-border hover:shadow-lg transition-shadow">
                 <div className="flex flex-col md:flex-row justify-between gap-4">
-                <div>
+                  <div>
                     <h3 className="text-xl font-serif font-bold text-foreground">National Cadet Corps (NCC)</h3>
                     <p className="certification-issuer text-sm text-muted-foreground mt-1">AITSC National-Level Representative</p>
                     <div className="mt-4 text-foreground">
@@ -661,31 +661,32 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="flex flex-col items-end justify-between">
-                    <span className="certification-date">September 2024</span>
+                    <span className="certification-date">September 2025</span>
                     <div className="text-sm text-muted-foreground mt-2 text-right">
-                      Ludhiana, Punjab
+                      DGNCC, Delhi
                     </div>
                   </div>
                 </div>
               </div>
             </FadeInWhenVisible>
-            
-            {/* <FadeInWhenVisible>
+
+            <FadeInWhenVisible>
               <div className="certification-card bg-card p-6 rounded-sm border border-border hover:shadow-lg transition-shadow">
                 <div className="flex flex-col md:flex-row justify-between gap-4">
-                <div>
-                    <h3 className="text-xl font-serif font-bold text-foreground">Technical Workshop Facilitator</h3>
-                    <p className="certification-issuer text-sm text-muted-foreground mt-1">Computer Science Department</p>
+                  <div>
+                    <h3 className="text-xl font-serif font-bold text-foreground">THINK-A-THON</h3>
+                    <p className="certification-issuer text-sm text-muted-foreground mt-1">
+                      Winner • Innovation & Problem-Solving Challenge
+                    </p>
                     <div className="mt-4 text-foreground">
                       <ul className="space-y-3 list-disc pl-5">
-                        <li>Conducted hands-on workshops on web development technologies for undergraduate students.</li>
-                        <li>Created comprehensive learning materials and interactive exercises to enhance student engagement.</li>
-                        <li>Mentored junior students in developing their first web applications, receiving consistently positive feedback.</li>
+                        <li>Secured 1st Position among competing teams by delivering an innovative, high-impact solution to a real-world challenge.</li>
+                        <li>Demonstrated exceptional creativity, critical thinking, teamwork, and presentation skills under intense competition.</li>
                       </ul>
                     </div>
                   </div>
                   <div className="flex flex-col items-end justify-between">
-                    <span className="certification-date">Jan. 2023 - Dec. 2023</span>
+                    <span className="certification-date">April 2026</span>
                     <div className="text-sm text-muted-foreground mt-2 text-right">
                       GNDEC, Ludhiana
                     </div>
@@ -693,30 +694,6 @@ export default function Home() {
                 </div>
               </div>
             </FadeInWhenVisible>
-            
-            <FadeInWhenVisible>
-              <div className="certification-card bg-card p-6 rounded-sm border border-border hover:shadow-lg transition-shadow">
-                <div className="flex flex-col md:flex-row justify-between gap-4">
-                <div>
-                    <h3 className="text-xl font-serif font-bold text-foreground">Hackathon Team Lead</h3>
-                    <p className="certification-issuer text-sm text-muted-foreground mt-1">Regional Tech Competitions</p>
-                    <div className="mt-4 text-foreground">
-                      <ul className="space-y-3 list-disc pl-5">
-                        <li>Led a team of 4 developers to secure 2nd place in the state-level hackathon focused on sustainable solutions.</li>
-                        <li>Coordinated development tasks, ensuring efficient workflow and timely delivery under tight deadlines.</li>
-                        <li>Pitched technical solutions to a panel of industry experts, developing strong presentation skills.</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-end justify-between">
-                    <span className="certification-date">Oct. 2022 - May 2023</span>
-                    <div className="text-sm text-muted-foreground mt-2 text-right">
-                      Various Locations
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </FadeInWhenVisible> */}
           </div>
         </div>
       </section>
@@ -732,7 +709,7 @@ export default function Home() {
               Have a project in mind or want to discuss a potential collaboration? Feel free to reach out.
             </p>
           </FadeInWhenVisible>
-          
+
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
             <FadeInWhenVisible>
               <div className="h-full flex flex-col justify-center">
@@ -742,7 +719,7 @@ export default function Home() {
                 <p className="text-muted-foreground mb-8 leading-relaxed">
                   I'm currently available for freelance work and full-time positions. If you have a project that needs coding skills, I'm your developer!
                 </p>
-                
+
                 <div className="space-y-6">
                   <div>
                     <h4 className="text-foreground font-medium mb-2">Phone</h4>
@@ -750,14 +727,14 @@ export default function Home() {
                       +91 7009079926
                     </a>
                   </div>
-                  
+
                   <div>
                     <h4 className="text-foreground font-medium mb-2">Follow Me</h4>
                     <div className="flex gap-4">
                       <SocialLinks />
                     </div>
-              </div>
-                  
+                  </div>
+
                   <div>
                     <h4 className="text-foreground font-medium mb-2">Resume</h4>
                     <ResumeButton href="/Aryan's Resume.pdf" text="Download Resume" />
@@ -765,7 +742,7 @@ export default function Home() {
                 </div>
               </div>
             </FadeInWhenVisible>
-            
+
             <FadeInWhenVisible>
               <ContactForm />
             </FadeInWhenVisible>
