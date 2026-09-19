@@ -18,7 +18,7 @@ interface BreadcrumbProps {
 
 export function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
   const pathname = usePathname();
-  
+
   // Generate breadcrumb items from pathname if not provided
   const generateBreadcrumbs = (): BreadcrumbItem[] => {
     const pathSegments = pathname.split('/').filter(Boolean);
@@ -30,14 +30,14 @@ export function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
     pathSegments.forEach((segment, index) => {
       currentPath += `/${segment}`;
       const isLast = index === pathSegments.length - 1;
-      
+
       // Convert segment to readable label
       let label = segment.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase());
-      
+
       // Special cases for better labels
       if (segment === 'project') label = 'Projects';
       if (segment === 'extracurricular') label = 'Leadership';
-      
+
       breadcrumbs.push({
         label,
         href: currentPath,
@@ -61,7 +61,7 @@ export function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
       "@type": "ListItem",
       "position": index + 1,
       "name": item.label,
-      "item": `https://abhijeets-portfolio.vercel.app${item.href}`
+      "item": `https://aryan-webdev.vercel.app${item.href}`
     }))
   };
 
@@ -71,8 +71,8 @@ export function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <nav 
-        aria-label="Breadcrumb" 
+      <nav
+        aria-label="Breadcrumb"
         className={`flex items-center space-x-1 text-sm text-muted-foreground mb-6 ${className}`}
       >
         <ol className="flex items-center space-x-1">
@@ -82,7 +82,7 @@ export function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
                 <ChevronRight className="h-4 w-4 mx-1 text-muted-foreground/60" />
               )}
               {item.current ? (
-                <span 
+                <span
                   className="font-medium text-foreground"
                   aria-current="page"
                 >
@@ -90,7 +90,7 @@ export function Breadcrumb({ items, className = '' }: BreadcrumbProps) {
                   {item.label}
                 </span>
               ) : (
-                <Link 
+                <Link
                   href={item.href}
                   className="hover:text-foreground transition-colors"
                 >

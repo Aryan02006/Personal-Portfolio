@@ -10,6 +10,7 @@ import PerformanceMonitor from '@/components/analytics/PerformanceMonitor';
 import RobustAnalytics from '@/components/analytics/RobustAnalytics';
 import ConditionalSpeedInsights from '@/components/analytics/ConditionalSpeedInsights';
 
+
 // Fonts
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -44,6 +45,7 @@ export const metadata: Metadata = {
     "Next.js",
     "TypeScript",
     "JavaScript",
+    "Next.js",
     "Node.js",
     "MongoDB",
     "PostgreSQL",
@@ -52,20 +54,20 @@ export const metadata: Metadata = {
     "Framer Motion",
   ],
   authors: [
-    { name: "Aryan Pandey", url: "https://aryan01x-portfolio.vercel.app" },
+    { name: "Aryan Pandey", url: "https://aryan-webdev.vercel.app" },
   ],
   creator: "Aryan Pandey",
   publisher: "Aryan Pandey",
 
-  metadataBase: new URL("https://aryan01x-portfolio.vercel.app"),
+  metadataBase: new URL("https://aryan-webdev.vercel.app"),
 
   alternates: {
-    canonical: "https://aryan01x-portfolio.vercel.app",
+    canonical: "https://aryan-webdev.vercel.app",
   },
 
   openGraph: {
     type: "website",
-    url: "https://aryan01x-portfolio.vercel.app",
+    url: "https://aryan-webdev.vercel.app",
     title: "Aryan Pandey - Full Stack Developer",
     description:
       "Full Stack Developer specializing in React, Next.js, and AI/ML.",
@@ -139,6 +141,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${playfair.variable} font-sans antialiased min-h-screen`}
       >
+
         <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <LoadingProvider>
             <Navbar />

@@ -1,6 +1,6 @@
 {
-  "name": "Abhijeet Singh - Full Stack Developer Portfolio",
-  "short_name": "Abhijeet Singh",
+  "name": "Aryan Pandey - Full Stack Developer Portfolio",
+  "short_name": "Aryan Pandey",
   "description": "Full Stack Developer specializing in React, Next.js, and AI/ML. Portfolio showcasing 5+ successful projects with 45% client revenue increase.",
   "start_url": "/",
   "display": "standalone",
@@ -10,7 +10,11 @@
   "scope": "/",
   "lang": "en-US",
   "dir": "ltr",
-  "categories": ["business", "productivity", "technology"],
+  "categories": [
+    "business",
+    "productivity",
+    "technology"
+  ],
   "screenshots": [
     {
       "src": "/og-image.png",

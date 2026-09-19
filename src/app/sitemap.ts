@@ -53,7 +53,7 @@ const projects = [
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://abhijeets-portfolio.vercel.app';
+  const baseUrl = 'https://aryan-webdev.vercel.app';
   
   // Static pages
   const staticPages = [
@@ -64,28 +64,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/about`,
-      lastModified: new Date('2025-07-15'),
-      changeFrequency: 'monthly' as const,
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/projects`,
       lastModified: new Date('2025-07-16'),
       changeFrequency: 'weekly' as const,
       priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: new Date('2025-07-15'),
-      changeFrequency: 'monthly' as const,
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/extracurricular`,
-      lastModified: new Date('2025-07-10'),
-      changeFrequency: 'monthly' as const,
-      priority: 0.6,
     },
   ];
 

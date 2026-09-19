@@ -2,22 +2,22 @@
 // Updated for 2025 SEO Best Practices
 
 export const seoConfig = {
-  baseUrl: 'https://abhijeets-portfolio.vercel.app',
-  siteName: 'Abhijeet Singh Portfolio',
-  defaultTitle: 'Abhijeet Singh - Full Stack Developer | React, Next.js, AI/ML Expert',
+  baseUrl: 'https://aryan-webdev.vercel.app',
+  siteName: 'Aryan Pandey Portfolio',
+  defaultTitle: 'Aryan Pandey - Full Stack Developer | React, Next.js, AI/ML Expert',
   defaultDescription: '🚀 Full Stack Developer & AI/ML Expert specializing in React, Next.js, TypeScript, and modern web technologies. 5+ projects delivered, 45% revenue increase for clients. Available for freelance & full-time opportunities in 2025.',
   author: {
-    name: 'Abhijeet Singh',
-    email: 'abhijeets09@gmail.com',
-    twitter: '@abhijeets09',
-    linkedin: 'https://linkedin.com/in/abhijeets09',
-    github: 'https://github.com/abhijeets09',
+    name: 'Aryan Pandey',
+    email: 'aryan.pandey01x@gmail.com',
+    twitter: '@aryan02006',
+    linkedin: 'https://linkedin.com/in/aryan-pandey084',
+    github: 'https://github.com/Aryan02006',
   },
   social: {
-    twitter: '@abhijeets09',
-    linkedin: 'abhijeets09',
-    github: 'abhijeets09',
-    instagram: 'abhijeets09',
+    twitter: '@aryan02006',
+    linkedin: 'aryan-pandey084',
+    github: 'Aryan02006',
+    instagram: 'aryan_pandey.751',
   },
   keywords: [
     // Primary keywords
@@ -29,13 +29,13 @@ export const seoConfig = {
     'Node.js Developer',
     'AI ML Developer',
     'Web Developer',
-    
+
     // Location-based keywords
     'Full Stack Developer India',
     'React Developer Punjab',
     'Next.js Developer Ludhiana',
     'Web Developer India',
-    
+
     // Service keywords
     'E-commerce Development',
     'Web Application Development',
@@ -44,7 +44,7 @@ export const seoConfig = {
     'MERN Stack Developer',
     'Frontend Developer',
     'Backend Developer',
-    
+
     // Technology keywords
     'React',
     'Next.js',
@@ -62,7 +62,7 @@ export const seoConfig = {
     'Framer Motion',
     'Shopify Development',
     'API Development',
-    
+
     // Year-specific and trending
     '2025',
     'Latest Web Technologies',
@@ -101,16 +101,16 @@ export function generatePageSEO(page: {
     modifiedTime,
   } = page;
 
-  const fullTitle = title 
+  const fullTitle = title
     ? `${title} | ${seoConfig.siteName}`
     : seoConfig.defaultTitle;
 
   const fullDescription = description || seoConfig.defaultDescription;
-  
+
   const allKeywords = [...seoConfig.keywords, ...keywords];
-  
+
   const canonical = `${seoConfig.baseUrl}${path}`;
-  
+
   const ogImage = image ? `${seoConfig.baseUrl}${image}` : `${seoConfig.baseUrl}${seoConfig.images.default}`;
 
   return {
@@ -129,7 +129,7 @@ export function generatePageSEO(page: {
           url: ogImage,
           width: 1200,
           height: 630,
-          alt: `${title || 'Abhijeet Singh Portfolio'} - Full Stack Developer`,
+          alt: `${title || 'Aryan Pandey Portfolio'} - Full Stack Developer`,
         },
       ],
       locale: 'en_US',
