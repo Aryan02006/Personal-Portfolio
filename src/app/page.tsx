@@ -4,14 +4,14 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion, useInView, useAnimation } from 'framer-motion';
-import { Download, ArrowRight, ExternalLink } from 'lucide-react';
+import { Download, ArrowRight } from 'lucide-react';
 import { SocialLinks } from '@/components/ui/social-links';
 import ContactForm from '@/components/contact/ContactForm';
 import ProjectCard from '@/components/project/ProjectCard';
 import usePageLoading from '@/hooks/usePageLoading';
 import { ResumeButton } from '@/components/ui/resume-button';
 import ImageContainer from '@/components/ui/ImageContainer';
-import { BlogPreview } from '@/components/blog';
+
 
 // Animation variants
 const fadeIn = {
@@ -290,6 +290,30 @@ export default function Home() {
               <div className="certification-card bg-card p-6 rounded-sm border border-border hover:shadow-lg transition-shadow">
                 <div className="flex flex-col md:flex-row justify-between gap-4">
                   <div>
+                    <h3 className="text-xl font-serif font-bold text-foreground">Software Intern</h3>
+                    <p className="certification-issuer text-sm text-muted-foreground mt-1">Spinks India Private Limited</p>
+                    <div className="mt-4 text-foreground">
+                      <ul className="space-y-3 list-disc pl-5">
+                        <li>Developing modern, scalable web experiences with clean architecture, refined UI engineering, and a strong focus on performance.</li>
+                        <li>Enhancing Rucoinx.com through interactive interfaces and immersive web experiences that elevate user engagement and product presentation.</li>
+                        <li>Collaborating on real-world product development, transforming design concepts into scalable, reusable, and production-ready frontend solutions.</li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div className="flex flex-col items-end justify-between">
+                    <span className="certification-date">July 2026 – Present</span>
+                    <div className="text-sm text-muted-foreground mt-2 text-right">
+                      Gurugram, Haryana
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </FadeInWhenVisible>
+
+            <FadeInWhenVisible>
+              <div className="certification-card bg-card p-6 rounded-sm border border-border hover:shadow-lg transition-shadow">
+                <div className="flex flex-col md:flex-row justify-between gap-4">
+                  <div>
                     <h3 className="text-xl font-serif font-bold text-foreground">Full Stack Developer Intern</h3>
                     <p className="certification-issuer text-sm text-muted-foreground mt-1">Bandhan of Dreams</p>
                     <div className="mt-4 text-foreground">
@@ -309,6 +333,8 @@ export default function Home() {
                 </div>
               </div>
             </FadeInWhenVisible>
+
+
 
             <FadeInWhenVisible>
               <div className="certification-card bg-card p-6 rounded-sm border border-border hover:shadow-lg transition-shadow">
@@ -334,29 +360,7 @@ export default function Home() {
               </div>
             </FadeInWhenVisible>
 
-            {/* <FadeInWhenVisible>
-              <div className="certification-card bg-card p-6 rounded-sm border border-border hover:shadow-lg transition-shadow">
-                <div className="flex flex-col md:flex-row justify-between gap-4">
-                  <div>
-                    <h3 className="text-xl font-serif font-bold text-foreground">Freelance Web Developer</h3>
-                    <p className="certification-issuer text-sm text-muted-foreground mt-1">Self-Employed</p>
-                    <div className="mt-4 text-foreground">
-                      <ul className="space-y-3 list-disc pl-5">
-                        <li>Increased Ankkor e-commerce revenue by 45% through Next.js/TypeScript platform <a href="https://ankkor.in" target="_blank" rel="noopener noreferrer" className="text-gradient-blue font-medium hover:underline">ankkor.in</a></li>
-                        <li>Boosted D2 Global Immigration client conversion via MERN stack platform <a href="https://d2global.in" target="_blank" rel="noopener noreferrer" className="text-gradient-blue font-medium hover:underline">d2global.in</a></li>
-                        <li>Scaled Initiators of Change NGO impact through MERN stack platform <a href="https://initiatorsofchange.com" target="_blank" rel="noopener noreferrer" className="text-gradient-blue font-medium hover:underline">initiatorsofchange.com</a></li>
-                      </ul>
-                    </div>
-                  </div>
-                  <div className="flex flex-col items-end justify-between">
-                    <span className="certification-date">Jan. 2024 – Present</span>
-                    <div className="text-sm text-muted-foreground mt-2 text-right">
-                      Remote
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </FadeInWhenVisible> */}
+
           </div>
         </div>
       </section>
@@ -436,7 +440,7 @@ export default function Home() {
       </section>
 
       {/* Blogs Section */}
-      {/* <BlogPreview /> */}
+
 
       {/* Skills Section */}
       <section id="skills" className="py-24 bg-background">
@@ -474,21 +478,21 @@ export default function Home() {
                     </div>
                     <div className="flex flex-col items-center">
                       <div className="w-16 h-16 flex items-center justify-center bg-card p-3 rounded-lg shadow-sm skills-icon-wrapper">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C" className="max-h-full" />
-                      </div>
-                      <span className="text-xs mt-2 text-muted-foreground">C</span>
-                    </div>
-                    <div className="flex flex-col items-center">
-                      <div className="w-16 h-16 flex items-center justify-center bg-card p-3 rounded-lg shadow-sm skills-icon-wrapper">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg" alt="C++" className="max-h-full" />
                       </div>
                       <span className="text-xs mt-2 text-muted-foreground">C++</span>
                     </div>
                     <div className="flex flex-col items-center">
                       <div className="w-16 h-16 flex items-center justify-center bg-card p-3 rounded-lg shadow-sm skills-icon-wrapper">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" className="max-h-full" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" alt="Go" className="max-h-full" />
                       </div>
-                      <span className="text-xs mt-2 text-muted-foreground">HTML5</span>
+                      <span className="text-xs mt-2 text-muted-foreground">Go</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <div className="w-16 h-16 flex items-center justify-center bg-card p-3 rounded-lg shadow-sm skills-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rust/rust-original.svg" alt="Rust" className="max-h-full filter dark:invert" />
+                      </div>
+                      <span className="text-xs mt-2 text-muted-foreground">Rust</span>
                     </div>
                   </div>
                 </div>
@@ -517,21 +521,21 @@ export default function Home() {
                     </div>
                     <div className="flex flex-col items-center">
                       <div className="w-16 h-16 flex items-center justify-center bg-card p-3 rounded-lg shadow-sm skills-icon-wrapper">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg" alt="Express" className="max-h-full dark:invert" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" className="max-h-full" />
                       </div>
-                      <span className="text-xs mt-2 text-muted-foreground">Express</span>
+                      <span className="text-xs mt-2 text-muted-foreground">Tailwind CSS</span>
                     </div>
                     <div className="flex flex-col items-center">
                       <div className="w-16 h-16 flex items-center justify-center bg-card p-3 rounded-lg shadow-sm skills-icon-wrapper">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" className="max-h-full" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/pytorch/pytorch-original.svg" alt="PyTorch" className="max-h-full" />
                       </div>
-                      <span className="text-xs mt-2 text-muted-foreground">Bootstrap</span>
+                      <span className="text-xs mt-2 text-muted-foreground">PyTorch</span>
                     </div>
                     <div className="flex flex-col items-center">
                       <div className="w-16 h-16 flex items-center justify-center bg-card p-3 rounded-lg shadow-sm skills-icon-wrapper">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original-wordmark.svg" alt="Tailwind" className="max-h-full" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" className="max-h-full" />
                       </div>
-                      <span className="text-xs mt-2 text-muted-foreground">Tailwind</span>
+                      <span className="text-xs mt-2 text-muted-foreground">TensorFlow</span>
                     </div>
                   </div>
                 </div>
@@ -548,21 +552,15 @@ export default function Home() {
                     </div>
                     <div className="flex flex-col items-center">
                       <div className="w-16 h-16 flex items-center justify-center bg-card p-3 rounded-lg shadow-sm skills-icon-wrapper">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" className="max-h-full dark:invert" />
-                      </div>
-                      <span className="text-xs mt-2 text-muted-foreground">GitHub</span>
-                    </div>
-                    <div className="flex flex-col items-center">
-                      <div className="w-16 h-16 flex items-center justify-center bg-card p-3 rounded-lg shadow-sm skills-icon-wrapper">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" className="max-h-full" />
-                      </div>
-                      <span className="text-xs mt-2 text-muted-foreground">VS Code</span>
-                    </div>
-                    <div className="flex flex-col items-center">
-                      <div className="w-16 h-16 flex items-center justify-center bg-card p-3 rounded-lg shadow-sm skills-icon-wrapper">
                         <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" className="max-h-full" />
                       </div>
                       <span className="text-xs mt-2 text-muted-foreground">Docker</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <div className="w-16 h-16 flex items-center justify-center bg-card p-3 rounded-lg shadow-sm skills-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" className="max-h-full" />
+                      </div>
+                      <span className="text-xs mt-2 text-muted-foreground">PostgreSQL</span>
                     </div>
                     <div className="flex flex-col items-center">
                       <div className="w-16 h-16 flex items-center justify-center bg-card p-3 rounded-lg shadow-sm skills-icon-wrapper">
@@ -572,9 +570,15 @@ export default function Home() {
                     </div>
                     <div className="flex flex-col items-center">
                       <div className="w-16 h-16 flex items-center justify-center bg-card p-3 rounded-lg shadow-sm skills-icon-wrapper">
-                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" className="max-h-full" />
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/redis/redis-original.svg" alt="Redis" className="max-h-full" />
                       </div>
-                      <span className="text-xs mt-2 text-muted-foreground">MySQL</span>
+                      <span className="text-xs mt-2 text-muted-foreground">Redis</span>
+                    </div>
+                    <div className="flex flex-col items-center">
+                      <div className="w-16 h-16 flex items-center justify-center bg-card p-3 rounded-lg shadow-sm skills-icon-wrapper">
+                        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original-wordmark.svg" alt="AWS" className="max-h-full dark:invert" />
+                      </div>
+                      <span className="text-xs mt-2 text-muted-foreground">AWS</span>
                     </div>
                   </div>
                 </div>
@@ -606,12 +610,7 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col items-end justify-between">
                     <span className="certification-date">April 2026</span>
-                    {/* <Link 
-                      href="#" 
-                      className="text-accent hover:underline text-sm whitespace-nowrap flex items-center mt-2"
-                    >
-                      View project <ExternalLink className="ml-1 h-3 w-3" />
-                    </Link> */}
+
                   </div>
                 </div>
               </div>

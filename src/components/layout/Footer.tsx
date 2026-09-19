@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { Github, Linkedin, Twitter, Instagram, Mail, Download, Phone } from 'lucide-react';
+import { Mail, Phone } from 'lucide-react';
 import { ResumeButton } from '@/components/ui/resume-button';
 import { SocialLinks } from '@/components/ui/social-links';
 import CodeSlashIcon from '@/components/ui/code-slash-icon';

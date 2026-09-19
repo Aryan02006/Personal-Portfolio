@@ -3,7 +3,7 @@
 import { useState, useRef } from 'react';
 import { z } from 'zod';
 import { motion } from 'framer-motion';
-import { SendIcon, CheckCircle, AlertCircle } from 'lucide-react';
+import { CheckCircle, AlertCircle } from 'lucide-react';
 
 const formSchema = z.object({
   name: z

@@ -1,9 +1,8 @@
 "use client"
 
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
-import { Menu, X, Download, Github, Linkedin, Mail } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 import { 
   Sheet, 
   SheetContent, 
@@ -63,8 +62,8 @@ const Navbar = () => {
   React.useEffect(() => {
     const handleSectionDetection = () => {
       const sections = ['about', 'projects', 'extracurricular', 'contact'];
-      // const sections = ['about', 'projects', 'blogs', 'extracurricular', 'contact'];
       const scrollPosition = window.scrollY + 100; // Offset to trigger earlier
+      let currentSection = "";
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -73,12 +72,17 @@ const Navbar = () => {
           const height = element.offsetHeight;
 
           if (scrollPosition >= top && scrollPosition < top + height) {
-            setActiveSection(section);
+            currentSection = section;
             break;
           }
         }
       }
+      
+      setActiveSection(currentSection);
     };
+
+    // Initial detection on mount
+    handleSectionDetection();
 
     window.addEventListener('scroll', handleSectionDetection);
     return () => window.removeEventListener('scroll', handleSectionDetection);
@@ -101,7 +105,7 @@ const Navbar = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-12 relative z-10">
+          <div className="hidden md:flex items-center space-x-8 relative z-10">
             <Link
               href="/#about"
               className={`nav-link text-foreground text-sm uppercase tracking-wider hover:text-accent transition-colors ${activeSection === 'about' ? 'active' : ''}`}
@@ -116,12 +120,7 @@ const Navbar = () => {
               Projects
             </Link>
 
-            {/* <Link
-              href="/blog"
-              className={`nav-link text-foreground text-sm uppercase tracking-wider hover:text-accent transition-colors ${activeSection === 'blogs' ? 'active' : ''}`}
-            >
-              Blogs
-            </Link> */}
+
 
             <Link
               href="/#extracurricular"

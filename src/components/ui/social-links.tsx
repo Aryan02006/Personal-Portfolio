@@ -10,9 +10,9 @@ interface SocialLinkProps {
 
 const SocialLink = ({ href, icon, label, color }: SocialLinkProps) => {
   return (
-    <a 
-      href={href} 
-      target="_blank" 
+    <a
+      href={href}
+      target="_blank"
       rel="noopener noreferrer"
       className={`social-link ${color} group`}
       aria-label={label}
@@ -28,47 +28,41 @@ const SocialLink = ({ href, icon, label, color }: SocialLinkProps) => {
 export function SocialLinks() {
   return (
     <div className="social-links-container">
-      <SocialLink 
+      <SocialLink
         href="https://github.com/Aryan02006"
         icon={<Github size={20} />}
         label="GitHub"
         color="github"
       />
-      <SocialLink 
+      <SocialLink
         href="https://www.linkedin.com/in/aryan-pandey084/"
         icon={<Linkedin size={20} />}
         label="LinkedIn"
         color="linkedin"
       />
-      <SocialLink 
+      <SocialLink
         href="https://leetcode.com/u/aryan_9771/"
         icon={<Code size={20} />}
         label="LeetCode"
         color="leetcode"
       />
-      <SocialLink 
+      <SocialLink
         href="https://x.com/aryan02006"
         icon={<Twitter size={20} />}
         label="Twitter"
         color="twitter"
       />
-      <SocialLink 
+      <SocialLink
         href="https://www.instagram.com/aryan_pandey.751"
         icon={<Instagram size={20} />}
         label="Instagram"
         color="instagram"
       />
-      <SocialLink 
+      <SocialLink
         href="mailto:aryan.pandey01x@gmail.com"
         icon={<Mail size={20} />}
         label="Email"
         color="email"
-      />
-      <SocialLink 
-        href="https://www.geeksforgeeks.org/user/engineera68e4/"
-        icon={<Code2 size={20} />}
-        label="GeeksforGeeks"
-        color="geeksforgeeks"
       />
     </div>
   );
