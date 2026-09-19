@@ -75,6 +75,30 @@ const allProjects = [
     category: 'SaaS / Management Platform',
   },
   {
+    id: 'aicouncil',
+    title: 'AI Council | Multi-Agent Debate Arena & AI Orchestration Platform',
+    description: 'A production-grade multi-agent AI platform that orchestrates specialized AI personas to collaborate, debate, invoke external knowledge sources, and deliver transparent, evidence-backed, consensus-driven intelligence.',
+    image: '/AICouncil.png',
+    tags: [
+      'AI Orchestration',
+      'Multi-Agent Systems',
+      'LLMs',
+      'AI Debate',
+      'React',
+      'Node.js',
+      'Express',
+      'MongoDB',
+      'OpenRouter',
+      'Gemini',
+      'Claude',
+      'Developer Tools',
+      'SaaS'
+    ],
+    liveUrl: 'https://ai-council-web.vercel.app/',
+    featured: true,
+    category: 'AI / Multi-Agent Orchestration Platform',
+  },
+  {
     id: 'insightflow',
     title: 'InsightFlow – AI-Powered Data Analysis Platform',
     description: 'An enterprise-grade AI-powered data analytics platform that enables non-technical users to analyze datasets through natural language queries, automated visualizations, and intelligent insights. Built with Next.js 16, Google Gemini AI, and LIDA-inspired architecture (Microsoft Research), the platform features 8+ interactive chart types with AI-powered chart recommendations, forecasting, anomaly detection, and Redis caching for optimal performance. Features include drag-and-drop file upload supporting CSV, Excel, JSON, and TSV formats, natural language query processing using Google Gemini API with RAG architecture, AI-powered chart recommendations suggesting optimal visualizations for data, 8+ interactive chart types (line, bar, scatter, heatmap, sankey, funnel) with Recharts and Nivo, real-time trend forecasting and anomaly detection with alerts, LIDA-inspired architecture for intelligent data summarization, multi-API key load balancing with circuit breaker pattern supporting 1000+ daily requests, Redis caching (Upstash) for 10x faster dataset loading, Supabase PostgreSQL with Row-Level Security for multi-user support, and dashboard sharing with export functionality (PNG/PDF/CSV/Excel).',
@@ -134,16 +158,6 @@ const allProjects = [
     featured: false,
     category: 'Web App',
   },
-  {
-    id: 'digital-evidence-viewer',
-    title: 'Digital Evidence Metadata Viewer',
-    description: 'A client-side digital forensics tool for securely analyzing files, extracting metadata, generating cryptographic hashes, and creating forensic reports - all without sending any data to a server. Features include secure client-side processing with no data uploads to servers, user authentication with Clerk, comprehensive file analysis (metadata, hashes, file signatures), case management for organizing multiple analyses, professional PDF report generation, and local browser storage using IndexedDB.',
-    image: '/df.png',
-    tags: ['Next.js', 'Clerk', 'TailwindCSS', 'Web Crypto API', 'ExifReader', 'jsPDF', 'IndexedDB'],
-    liveUrl: 'https://df-project-nine.vercel.app',
-    featured: true,
-    category: 'Digital Forensics',
-  }
 ];
 
 // Extract unique categories and tags

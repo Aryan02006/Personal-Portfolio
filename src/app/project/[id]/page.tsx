@@ -89,6 +89,144 @@ const projectsData = [
     duration: '1 months',
   },
   {
+    id: 'aicouncil',
+    title: 'AI Council | Multi-Agent Debate Arena & AI Orchestration Platform',
+    description: 'A production-grade multi-agent AI platform that orchestrates specialized AI personas to collaborate, debate, invoke external knowledge sources, and deliver transparent, evidence-backed, consensus-driven intelligence.',
+    fullDescription: `
+    AI Council is an enterprise-grade multi-agent AI orchestration platform designed to transform how complex problems are analyzed, debated, and solved. Rather than relying on a single language model, the platform assembles specialized AI personas that collaborate, challenge one another, and converge on high-quality, evidence-backed outcomes through structured reasoning.
+
+    At its core, AI Council introduces a competitive debate framework where domain-specific AI agents engage in turn-based discussions, defend contrasting viewpoints, critique peer responses, and collectively refine solutions. This transparent reasoning process significantly improves answer quality while reducing hallucinations and exposing the logic behind every decision.
+
+    The platform features an intelligent orchestration engine responsible for coordinating agent workflows, managing conversation state, routing prompts, and synthesizing final responses. To ensure reliability and uninterrupted execution, AI Council integrates multiple leading LLM providers—including OpenRouter, Google Gemini, and Claude—with automatic failover, fallback routing, and provider cooldown mechanisms.
+
+    Beyond model reasoning, AI Council empowers agents with dynamic tool execution capabilities. During debates, agents can retrieve real-time information from trusted external knowledge sources such as Wikipedia, PubMed, FDA Drug Labels, arXiv, CourtListener, World Bank, Stanford Encyclopedia of Philosophy, OpenStreetMap, and The Guardian. This transforms static language models into evidence-aware reasoning systems capable of validating claims before reaching conclusions.
+
+    The platform supports multiple specialized debate environments tailored for distinct domains, including Medical Consulting, Legal Analysis, Mock Interviews, Mentor Panels, Historical Debates, Fantasy Lore, and Competitive Combat Mode. Each arena utilizes curated AI personas optimized for domain-specific reasoning and collaborative intelligence.
+
+    AI Council also provides multilingual interaction with seamless support for English, Hindi, and Punjabi, enabling users to conduct debates and generate reports in their preferred language.
+
+    Built on a scalable modern architecture using React, Node.js, Express, MongoDB, Zustand, and Tailwind CSS, the platform emphasizes modularity, extensibility, and production readiness. Its architecture enables future integration of custom AI agents, enterprise workflows, autonomous research pipelines, and advanced orchestration capabilities.
+
+    AI Council represents the next generation of AI collaboration—where specialized intelligence, transparent reasoning, external knowledge retrieval, and autonomous orchestration combine to produce more reliable, explainable, and trustworthy AI systems.
+  `,
+    image: '/AICouncil.png',
+    tags: [
+      'AI Orchestration',
+      'Multi-Agent Systems',
+      'AI Debate',
+      'LLMs',
+      'Agentic AI',
+      'React',
+      'Node.js',
+      'Express',
+      'MongoDB',
+      'OpenRouter',
+      'Gemini',
+      'Claude',
+      'Developer Tools',
+      'SaaS'
+    ],
+    liveUrl: 'https://ai-council-web.vercel.app/',
+    featured: true,
+    category: 'AI / Multi-Agent Orchestration Platform',
+
+    goals: [
+      'Build a production-grade multi-agent AI orchestration platform',
+      'Enable structured AI debates for transparent and explainable reasoning',
+      'Coordinate specialized AI personas through intelligent orchestration workflows',
+      'Integrate multiple LLM providers with automatic failover and fallback routing',
+      'Empower AI agents with real-time external knowledge retrieval via APIs',
+      'Provide domain-specific collaborative panels for diverse real-world scenarios',
+      'Deliver multilingual AI interactions and AI-generated reports',
+      'Improve response quality through consensus-driven intelligence and evidence-backed reasoning'
+    ],
+
+    technologies: {
+      frontend: [
+        'React 19',
+        'Vite',
+        'Tailwind CSS',
+        'Zustand',
+        'Framer Motion'
+      ],
+
+      backend: [
+        'Node.js',
+        'Express.js',
+        'REST APIs',
+        'Axios',
+        'Mongoose'
+      ],
+
+      ai: [
+        'OpenRouter',
+        'Google Gemini',
+        'Claude',
+        'LLM Fallback Routing',
+        'AI Orchestration Engine',
+        'Multi-Agent Collaboration'
+      ],
+
+      database: [
+        'MongoDB'
+      ],
+
+      externalTools: [
+        'Wikipedia API',
+        'PubMed API',
+        'FDA Drug Label API',
+        'arXiv API',
+        'CourtListener API',
+        'World Bank API',
+        'Stanford Encyclopedia of Philosophy',
+        'OpenStreetMap (Overpass API)',
+        'The Guardian API',
+        'REST Countries API'
+      ],
+
+      features: [
+        'Combat Mode',
+        'AI Judge',
+        'Agent Panels',
+        'Conversation Orchestration',
+        'Multilingual Support',
+        'Dynamic Tool Calling',
+        'Consensus Generation'
+      ],
+
+      deployment: [
+        'Vercel (Frontend)',
+        'Node.js Server',
+        'MongoDB'
+      ]
+    },
+
+    challenges: [
+      'Designing a scalable orchestration engine capable of coordinating multiple AI personas simultaneously',
+      'Implementing structured debate workflows with turn-based reasoning and AI judging',
+      'Building reliable multi-provider LLM routing with automatic failover and cooldown mechanisms',
+      'Developing dynamic tool execution pipelines for real-time knowledge retrieval during debates',
+      'Maintaining coherent conversational context across multiple collaborating AI agents',
+      'Balancing response quality, execution latency, and API cost across heterogeneous LLM providers',
+      'Designing modular domain-specific agent panels for diverse real-world applications',
+      'Creating a transparent reasoning system that exposes how final decisions are reached'
+    ],
+
+    results: [
+      'Developed a production-ready multi-agent AI platform with modular orchestration architecture',
+      'Enabled collaborative AI reasoning through structured debates and consensus generation',
+      'Integrated multiple enterprise-grade LLM providers with resilient fallback routing',
+      'Enhanced factual reliability by enabling live retrieval from trusted external knowledge sources',
+      'Built reusable domain-specific AI panels for healthcare, law, mentoring, interviews, and competitive debates',
+      'Delivered multilingual AI experiences across English, Hindi, and Punjabi',
+      'Established a scalable foundation for future autonomous AI workflows and enterprise orchestration systems',
+      'Demonstrated how collaborative AI intelligence can outperform isolated single-model interactions'
+    ],
+
+    date: 'July 2026',
+    duration: '1 Month'
+  },
+  {
     id: 'smartmess',
     title: 'SmartMess | Smart Mess & Meal Management SaaS Platform',
     description: 'A full-stack SaaS platform designed to digitize and automate hostel mess operations, including meal tracking, subscription management, billing, and administrative workflows. The system improves operational efficiency, reduces manual errors, and provides real-time visibility into mess activities.',
@@ -525,51 +663,51 @@ const projectsData = [
   //   date: 'November 2023',
   //   duration: '1 month',
   // },
-  {
-    id: 'digital-evidence-viewer',
-    title: 'Digital Evidence Metadata Viewer',
-    description: 'A client-side digital forensics tool for securely analyzing files, extracting metadata, and creating reports.',
-    fullDescription: `
-      A client-side digital forensics tool for securely analyzing files, extracting metadata, generating cryptographic hashes, and creating forensic reports - all without sending any data to a server.
+  // {
+  //   id: 'digital-evidence-viewer',
+  //   title: 'Digital Evidence Metadata Viewer',
+  //   description: 'A client-side digital forensics tool for securely analyzing files, extracting metadata, and creating reports.',
+  //   fullDescription: `
+  //     A client-side digital forensics tool for securely analyzing files, extracting metadata, generating cryptographic hashes, and creating forensic reports - all without sending any data to a server.
 
-      The application performs all file analysis entirely in the browser, meaning sensitive evidence files never leave the user's device. It provides comprehensive metadata extraction for various file types, cryptographic hash generation (MD5, SHA-256), file signature verification, case management capabilities, and professional PDF report generation. All analysis results are stored securely in the browser using IndexedDB.
+  //     The application performs all file analysis entirely in the browser, meaning sensitive evidence files never leave the user's device. It provides comprehensive metadata extraction for various file types, cryptographic hash generation (MD5, SHA-256), file signature verification, case management capabilities, and professional PDF report generation. All analysis results are stored securely in the browser using IndexedDB.
       
-      This project demonstrates my ability to create secure, privacy-focused applications with advanced client-side processing capabilities for specialized domains like digital forensics.
-    `,
-    image: '/df.png',
-    tags: ['Next.js', 'Clerk', 'TailwindCSS', 'Web Crypto API', 'ExifReader', 'jsPDF', 'IndexedDB'],
-    liveUrl: 'https://df-project-nine.vercel.app',
-    featured: true,
-    category: 'Digital Forensics',
-    goals: [
-      'Create a secure digital forensics tool with complete client-side processing',
-      'Implement comprehensive file metadata extraction and analysis',
-      'Develop cryptographic hash generation and file signature verification',
-      'Build case management and organization capabilities',
-      'Create professional forensic report generation'
-    ],
-    technologies: {
-      frontend: ['Next.js 14 (App Router)', 'TypeScript', 'TailwindCSS', 'React'],
-      other: ['Web Crypto API', 'ExifReader', 'jsPDF', 'IndexedDB', 'Clerk Authentication'],
-      deployment: ['Vercel'],
-    },
-    challenges: [
-      'Processing large files entirely client-side without performance issues',
-      'Implementing complex cryptographic operations in the browser',
-      'Creating a secure storage mechanism for forensic data',
-      'Generating professional PDF reports with consistent formatting',
-      'Ensuring compliance with digital forensics best practices'
-    ],
-    results: [
-      'Secure, privacy-focused file analysis with no server uploads',
-      'Comprehensive metadata extraction for various file types',
-      'Professional PDF reports for forensic documentation',
-      'Case management system for organizing multiple analyses',
-      'Secure local storage of analysis results'
-    ],
-    date: 'February 2024',
-    duration: '2 months',
-  },
+  //     This project demonstrates my ability to create secure, privacy-focused applications with advanced client-side processing capabilities for specialized domains like digital forensics.
+  //   `,
+  //   image: '/df.png',
+  //   tags: ['Next.js', 'Clerk', 'TailwindCSS', 'Web Crypto API', 'ExifReader', 'jsPDF', 'IndexedDB'],
+  //   liveUrl: 'https://df-project-nine.vercel.app',
+  //   featured: true,
+  //   category: 'Digital Forensics',
+  //   goals: [
+  //     'Create a secure digital forensics tool with complete client-side processing',
+  //     'Implement comprehensive file metadata extraction and analysis',
+  //     'Develop cryptographic hash generation and file signature verification',
+  //     'Build case management and organization capabilities',
+  //     'Create professional forensic report generation'
+  //   ],
+  //   technologies: {
+  //     frontend: ['Next.js 14 (App Router)', 'TypeScript', 'TailwindCSS', 'React'],
+  //     other: ['Web Crypto API', 'ExifReader', 'jsPDF', 'IndexedDB', 'Clerk Authentication'],
+  //     deployment: ['Vercel'],
+  //   },
+  //   challenges: [
+  //     'Processing large files entirely client-side without performance issues',
+  //     'Implementing complex cryptographic operations in the browser',
+  //     'Creating a secure storage mechanism for forensic data',
+  //     'Generating professional PDF reports with consistent formatting',
+  //     'Ensuring compliance with digital forensics best practices'
+  //   ],
+  //   results: [
+  //     'Secure, privacy-focused file analysis with no server uploads',
+  //     'Comprehensive metadata extraction for various file types',
+  //     'Professional PDF reports for forensic documentation',
+  //     'Case management system for organizing multiple analyses',
+  //     'Secure local storage of analysis results'
+  //   ],
+  //   date: 'February 2024',
+  //   duration: '2 months',
+  // },
   {
     id: 'portfolio',
     title: 'Portfolio Website – Next.js Animated Portfolio',
